@@ -1,0 +1,57 @@
+/* CSS Colors in global webpages */
+
+body {
+  background-color: #f3f5f7;
+}
+
+.blue-font-color {
+  background-color: #4965b3;
+}
+
+.green-font-color {
+  background-color: #05cbae;
+}
+
+.gray-font-color {
+  background-color: #8e8e8e;
+}
+
+.white-font-color {
+  background-color: #ffffff;
+}
+
+.black-font-color {
+  background-color: #000000;
+}
+
+.red-font-color {
+  background-color: #ef303e;
+}
+
+.pink-font-color {
+  background-color: #ff6971;
+}
+
+.red-text-color {
+  color: #ef303e;
+}
+
+.blue-text-color {
+  color: #415ba2;
+}
+
+.gray-text-color {
+  color: #626262;
+}
+
+.white-text-color {
+  color: #ffffff;
+}
+
+.black-text-color {
+  color: #000000;
+}
+
+.pink-text-color {
+  color: #f59095;
+}

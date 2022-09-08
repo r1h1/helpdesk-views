@@ -1,0 +1,49 @@
+/* Specific CSS from index.html (Client) */
+
+header nav a {
+  text-decoration: none;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+.principal-container {
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.principal-container .principal-options a {
+  text-decoration: none;
+  color: black;
+}
+
+.principal-container .principal-options a:hover {
+  text-decoration: underline;
+  color: #415ba2;
+}
+
+.help .card-help {
+  border-radius: 18px;
+  padding: 40px;
+  margin-bottom: 50px;
+}
+
+.top-footer {
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.top-footer a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.top-footer a:hover {
+  text-decoration: underline;
+  color: #444444;
+}
+
+.bottom-footer {
+  padding: 15px;
+}

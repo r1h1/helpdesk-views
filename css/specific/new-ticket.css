@@ -1,0 +1,69 @@
+/* Specific CSS from index.html (Client) */
+
+header nav a {
+  text-decoration: none;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+.main-container {
+  margin: auto;
+  width: 95%;
+}
+
+.main-container .main-site .principal-container {
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.main-container .main-site .principal-container .main-card {
+  border-radius: 18px;
+  margin-bottom: 50px;
+}
+
+.main-container
+  .main-site
+  .principal-container
+  .main-card
+  .card-body
+  .principal-title-new {
+  padding: 40px 40px 10px 35px;
+}
+
+.top-footer {
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.top-footer a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.top-footer a:hover {
+  text-decoration: underline;
+  color: #444444;
+}
+
+.bottom-footer {
+  padding: 15px;
+}
+
+@media (max-width: 768px) {
+  .instructions-card{
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-container {
+    margin: auto;
+    width: 100%;
+  }
+
+  .instructions-card{
+    display: none;
+  }
+}

@@ -1,0 +1,25 @@
+/* Specific CSS from index.html (Client) */
+
+body {
+  background: #415ba2;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.container-sm {
+  width: 400px;
+}
+
+.container-sm .login-card {
+  margin: 160px 0px 0px 0px;
+}
+
+.login-container {
+  border-radius: 18px;
+}
+
+@media (max-width: 400px) {
+  .container-sm {
+    width: 90%;
+  }
+}

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Dashboard, Help desk solution for Analisis de Sistemas II, UMG, 2022" />
+    <meta name="keywords" content="HTML5, CSS3, Bootstrap 5, JavaScript, Help Desk, Support" />
+    <meta name="author" content="ACDL" />
+    <meta name="copyright" content="ACDL Assoc" />
+    <meta name="robots" content="index" />
+
+    <title>Management</title>
+
+    <!-- plugins:css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../../vendors/feather/feather.css">
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../../css/specific/dashboard.css">
+    <link rel="stylesheet" href="../../css/typography.css">
+    <link rel="stylesheet" href="../../css/specific/new-ticket.css">
+    <link rel="stylesheet" href="../../css/specific/users.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="../../img/support-logo.png" />
+    <link rel="stylesheet" href="../../css/colors.css">
+
+    <!-- Sweet Alert Pop Up -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.all.js"
+        integrity="sha512-L0pIRrYrKsfCidtpWhWSrrbyAcSfrvMaezfwnNGns7c7MuToIEZRabX+WmZ6+Dzn8ESNsHz7t/k6vF8aM1fVXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/be221c52b4.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="container-scroller">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                <a class="navbar-brand brand-logo mr-5" href="dashboard.html"><img src="../../img/support-logo.png"
+                        class="mr-2" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="dashboard.html"><img src="../../img/support-logo.png"
+                        alt="logo" /></a>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                    <span class="icon-menu"></span>
+                </button>
+                <ul class="navbar-nav navbar-nav-right">
+                    <li class="nav-link">
+                        <a class="nav-link btn red-font-color white-text-color w-100 p-2" href="../../index.html">
+                            Cerrar Sesión
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial -->
+            <!-- partial:partials/_sidebar.html -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">
+                            <i class="fa-solid fa-gauge" style="margin-right: 15px;"></i>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="users.html">
+                            <i class="fa-solid fa-user" style="margin-right: 15px;"></i>
+                            <span class="menu-title">Usuarios</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="solve-groups.html">
+                            <i class="fa-solid fa-users" style="margin-right: 10px;"></i>
+                            <span class="menu-title">Grupos de Trabajo</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="departments.html">
+                            <i class="fa-solid fa-building-user" style="margin-right: 11px;"></i>
+                            <span class="menu-title">Departamentos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../user/new-ticket.html" target="_blank" onclick="newTicketOpen()">
+                            <i class="fa-solid fa-ticket" style="margin-right: 13px;"></i>
+                            <span class="menu-title">Crear un Ticket</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="status-tickets.html">
+                            <i class="fa-solid fa-clipboard-check" style="margin-right: 18px;"></i>
+                            <span class="menu-title">Status del Ticket</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reports.html">
+                            <i class="fa-brands fa-sellsy" style="margin-right: 12px;"></i>
+                            <span class="menu-title">Reportes</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manual.html">
+                            <i class="fa-solid fa-book" style="margin-right: 16px;"></i>
+                            <span class="menu-title">Manual de Usuario</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-md-12 grid-margin">
+                            <div class="row">
+                                <div class="col-12 col-xl-8 mb-xl-0 mt-3">
+                                    <h3 class="font-weight-bold">Información sobre el ticket</h3>
+                                    <h6 class="font-weight-normal mb-0">Puedes solucionar el ticket desde esta
+                                        pantalla.</span></h6>
+                                </div>
+                                <div class="row principal-options mt-4">
+                                    <div class="col">
+                                        <a href="status-tickets.html"
+                                            class="btn blue-font-color text-decoration-none white-text-color href">
+                                            <span><i class="fa-solid fa-arrow-left white-text-color"></i></span>
+                                            Regresar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row modules">
+                        <div class="col-md-6 stretch-card transparent mt-4">
+                            <div class="card white-font-color">
+                                <div class="card-body w-100">
+                                    <p class="fw-bold">Ticket</p>
+                                    <div class="ticket-form p-2">
+                                        <div
+                                            class="descripcion-ticket alert green-font-color mt-4 white-text-color h-auto">
+                                            <p>Abierto</p>
+                                        </div>
+                                        <p class="h4 font-weight-bold mt-5">#262001 Mi office no tiene licencia</p>
+                                        <p class="h5 mt-4">Usuario: Daniel Rivas</p>
+                                        <p class="h5 mt-3">Departamento: Contabilidad</p>
+                                        <p class="h5 mt-3 fw-bold">Tipo de Incidencia: Software</p>
+                                        <p class="h5 fw-bold mt-3">Prioridad: Alta</p>
+                                        <p class="h5 mt-3">Fecha de creación: 19/08/2022</p>
+
+                                        <div class="descripcion-ticket border border-4 p-5 mt-5 h-auto">
+                                            <p>Buena tarde, necesito una licencia para Office 2019 Professional Plus
+                                                o en su defecto KMS, ya que no puedo trabajar ofimática. saludos.</p>
+                                        </div>
+                                        <p class="h5 mt-5">Adjuntos:</p>
+                                        <p class="h5 mt-3 text-decoration-underline blue-text-color">
+                                            https://drive.google.com/file/d/1hc1Vy3VbbnMuyci_0Dq99OogMHAP3Xd/view?usp=drivesdk
+                                        </p>
+                                        <div class="descripcion-solucion border border-4 p-5 mt-5 h-auto">
+                                            <p>Comentarios de Soporte:</p>
+                                            <p class="mt-4"></p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 stretch-card transparent mt-4">
+                            <div class="card white-font-color">
+                                <div class="card-body w-100">
+                                    <p class="fw-bold">Resolucion del Ticket</p>
+                                    <form class="issue-form m-4 row" action="" method="">
+
+                                        <div class="col-md-12 mb-3 mt-2">
+                                            <label for="" class="form-label">Técnico Asignado *</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text ">
+                                                    <i class="fa-solid fa-user"></i>
+                                                </span>
+                                                <select class="form-select " name="tecnicoAsignado" required>
+                                                    <option value="a">Juan</option>
+                                                    <option value="b">Pedro</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-12 mb-3 mt-2">
+
+                                            <label for="" class="form-label">Estado *</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text ">
+                                                    <i class="fa-solid fa-circle-question"></i>
+                                                </span>
+                                                <select class="form-select " name="estadoTicket" required>
+                                                    <option value="a">Abierto</option>
+                                                    <option value="b">En Proceso</option>
+                                                    <option value="c">Cerrado</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 mb-3 mt-2">
+
+                                            <textarea class="form-control" name="descripcion" rows="9"
+                                                placeholder="Puedes incluir una breve descripción de tu problema para ayudar al Usuario."
+                                                minlength="0" maxlength="256" required></textarea>
+
+                                        </div>
+
+                                        <div class="col-md-12 mb-3 mt-2" id="recursosFacturables">
+
+                                            <label for="" class="form-label">Nombre del Recurso</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text ">
+                                                    <i class="fa-solid fa-list"></i>
+                                                </span>
+                                                <input type="text" class="form-control" placeholder="Router Xiaomi"
+                                                    name="nombreRecursoFacturable">
+                                            </div>
+
+                                            <label for="" class="form-label mt-4">Cantidad</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text ">
+                                                    <i class="fa-solid fa-list-ol"></i>
+                                                </span>
+                                                <input type="number" class="form-control" min="1" max="99999999"
+                                                    placeholder="1" name="cantidadRecursoFacturable">
+                                            </div>
+
+                                            <label for="" class="form-label mt-4">Precio (Q)</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text ">
+                                                    <i class="fa-solid fa-money-bill"></i>
+                                                </span>
+                                                <input type="number" class="form-control" min="1" max="99999999"
+                                                    placeholder="500.00">
+                                            </div>
+
+                                            <textarea class="form-control mt-3" name="descripcionRecursoFacturable"
+                                                rows="9" placeholder="Puedes incluir una breve descripción del recurso utilizado, etc." minlength="0" maxlength="256"
+                                                ></textarea>
+
+                                            <a class="btn blue-font-color white-text-color mt-2 mb-2 href">+ Añadir</a>
+
+                                        </div>
+
+                                        <div class="col-md-12 mb-3" id="tablaTempRecursosFacturables">
+                                            <div class="table-responsive mt-4">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Nombre</th>
+                                                            <th scope="col">Cant.</th>
+                                                            <th scope="col">Precio</th>
+                                                            <th scope="col">Descripción</th>
+                                                            <th scope="col"></th>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>a</td>
+                                                            <td>1</td>
+                                                            <td>1</td>
+                                                            <td>abc</td>
+                                                            <td><a href="#" class="btn red-font-color"><i
+                                                                        class="fa-solid fa-trash"></i></a></td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 mb-3 mt-3">
+                                            <button type="submit"
+                                                class="btn green-font-color white-text-color mt-2 mb-2 href"
+                                                id="submit-ticket"><i class="fa-solid fa-floppy-disk"></i><span class="p-2">Guardar</span>
+                                            </button>
+                                            <a class="btn blue-font-color white-text-color mt-2 mb-2 href"
+                                                onclick="habilitarRecursoFacturable()" id="botonRecursoFacturable">
+                                            </a>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Software Help Desk
+                            de ACDL
+                            Support, © Analisis de Sistemas II, UMG 2022</span>
+                    </div>
+                </footer>
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+    <script>
+        function deshabilitarRecursoFacturable() {
+
+            var divRecursoFacturable = document.getElementById("recursosFacturables");
+            var divTablaTempRecursosFacturables = document.getElementById("tablaTempRecursosFacturables");
+            var botonRecursoFacturable = document.getElementById("botonRecursoFacturable").innerHTML = '+ Añadir Recurso Facturable';
+
+            divRecursoFacturable.style.display = "none";
+            divTablaTempRecursosFacturables.style.display = "none";
+        }
+
+        deshabilitarRecursoFacturable();
+    </script>
+    <script src="../../js/dashboard/alerts.js"></script>
+    <script src="../../js/global.js"></script>
+    <script src="../../vendors/js/vendor.bundle.base.js"></script>
+    <script src="../../js/dashboard/off-canvas.js"></script>
+    <script src="../../js/dashboard/template.js"></script>
+    <script src="../../js/dashboard/dashboard.js"></script>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

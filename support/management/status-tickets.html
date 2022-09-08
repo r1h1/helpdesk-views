@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Dashboard, Help desk solution for Analisis de Sistemas II, UMG, 2022" />
+    <meta name="keywords" content="HTML5, CSS3, Bootstrap 5, JavaScript, Help Desk, Support" />
+    <meta name="author" content="ACDL" />
+    <meta name="copyright" content="ACDL Assoc" />
+    <meta name="robots" content="index" />
+
+    <title>Management</title>
+
+    <!-- plugins:css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../../vendors/feather/feather.css">
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../../css/specific/dashboard.css">
+    <link rel="stylesheet" href="../../css/typography.css">
+    <link rel="stylesheet" href="../../css/specific/new-ticket.css">
+    <link rel="stylesheet" href="../../css/specific/users.css">
+    <!-- endinject -->
+    <link rel="icon" href="../../img/support-logo.png" />
+    <link rel="stylesheet" href="../../css/colors.css">
+
+    <!-- Sweet Alert Pop Up -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.all.js"
+        integrity="sha512-L0pIRrYrKsfCidtpWhWSrrbyAcSfrvMaezfwnNGns7c7MuToIEZRabX+WmZ6+Dzn8ESNsHz7t/k6vF8aM1fVXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/be221c52b4.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="container-scroller">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                <a class="navbar-brand brand-logo mr-5" href="dashboard.html"><img src="../../img/support-logo.png"
+                        class="mr-2" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="dashboard.html"><img src="../../img/support-logo.png"
+                        alt="logo" /></a>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                    <span class="icon-menu"></span>
+                </button>
+                <ul class="navbar-nav navbar-nav-right">
+                    <li class="nav-link">
+                        <a class="nav-link btn red-font-color white-text-color w-100 p-2" href="../../index.html">
+                            Cerrar Sesión
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial -->
+            <!-- partial:partials/_sidebar.html -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">
+                            <i class="fa-solid fa-gauge" style="margin-right: 15px;"></i>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="users.html">
+                            <i class="fa-solid fa-user" style="margin-right: 15px;"></i>
+                            <span class="menu-title">Usuarios</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="solve-groups.html">
+                            <i class="fa-solid fa-users" style="margin-right: 10px;"></i>
+                            <span class="menu-title">Grupos de Trabajo</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="departments.html">
+                            <i class="fa-solid fa-building-user" style="margin-right: 11px;"></i>
+                            <span class="menu-title">Departamentos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../user/new-ticket.html" target="_blank" onclick="newTicketOpen()">
+                            <i class="fa-solid fa-ticket" style="margin-right: 13px;"></i>
+                            <span class="menu-title">Crear un Ticket</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="status-tickets.html">
+                            <i class="fa-solid fa-clipboard-check" style="margin-right: 18px;"></i>
+                            <span class="menu-title">Status del Ticket</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reports.html">
+                            <i class="fa-brands fa-sellsy" style="margin-right: 12px;"></i>
+                            <span class="menu-title">Reportes</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manual.html">
+                            <i class="fa-solid fa-book" style="margin-right: 16px;"></i>
+                            <span class="menu-title">Manual de Usuario</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-md-12 grid-margin">
+                            <div class="row">
+                                <div class="col-12 col-xl-8 mb-xl-0 mt-3">
+                                    <h3 class="font-weight-bold">Base de Tickets</h3>
+                                    <h6 class="font-weight-normal mb-0">Presiona el número del ticket para
+                                        solucionarlo.</span></h6>
+                                </div>
+                                <div class="row principal-options mt-4">
+                                    <div class="col">
+                                        <a href="dashboard.html"
+                                            class="btn blue-font-color text-decoration-none white-text-color href">
+                                            <span><i class="fa-solid fa-arrow-left white-text-color"></i></span>
+                                            Regresar a Dashboard</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row modules">
+                        <div class="col-md-12 stretch-card mt-4">
+                            <div class="card white-font-color">
+                                <div class="card-body w-100">
+                                    <p class="fw-bold">Tickets Creados</p>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label for="" class="form-label mt-3">Filtrar por</label>
+                                            <div class="input-group">
+                                                <select class="form-select form-select-sm mt-2"
+                                                    aria-label="Default select example" name="filtrarPor">
+                                                    <option value="">Seleccione...</option>
+                                                    <option value="1">Abierto</option>
+                                                    <option value="1">En Proceso</option>
+                                                    <option value="1">Cerrado</option>
+                                                    <option value="1">Ascendente</option>
+                                                    <option value="2">Descendente</option>
+                                                    <option value="3">A-Z</option>
+                                                    <option value="4">Z-A</option>
+                                                </select>
+                                                <span class="input-group-text mt-2">
+                                                    <i class="fa-solid fa-filter"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="" class="form-label mt-3">Buscar por</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control mt-2" placeholder=""
+                                                    aria-label="Buscar por" name="buscarPor">
+                                                <span class="input-group-text mt-2">
+                                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive mt-5">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Usuario</th>
+                                                    <th scope="col">Incidencia</th>
+                                                    <th scope="col">Prioridad</th>
+                                                    <th scope="col">Estado</th>
+                                                    <th scope="col">Fecha de Creación</th>
+                                                    <th scope="col"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="ticket-info.html?262001"
+                                                            class="fw-bold pink-font-color p-2"
+                                                            data-as-toggle="tooltip"
+                                                            data-as-placement="top"
+                                                            title="Presiona para ver la información del ticket">262001</a></td>
+
+                                                    <td>Daniel Rivas</td>
+                                                    <td>Mi office no tiene licencia</td>
+                                                    <td class="fw-bold">Alta</td>
+                                                    <td><span
+                                                            class="green-font-color white-text-color href p-2"
+                                                            data-as-toggle="tooltip"
+                                                            data-as-placement="top"
+                                                            title="Puedes seguir el status del ticket">Abierto</span>
+                                                    </td>
+                                                    <td>19/08/2022</td>
+                                                    <td><a href="#" class="btn red-font-color"><i
+                                                                class="fa-solid fa-trash"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="ticket-info.html?071980"
+                                                            class="fw-bold pink-font-color p-2"
+                                                            data-as-toggle="tooltip"
+                                                            data-as-placement="top"
+                                                            title="Presiona para ver la información del ticket">071980</a></td>
+
+                                                    <td>Daniel Rivas</td>
+                                                    <td>Mi office no tiene licencia</td>
+                                                    <td class="fw-bold">Alta</td>
+                                                    <td><span class="blue-font-color white-text-color href p-2"
+                                                            data-as-toggle="tooltip"
+                                                            data-as-placement="top"
+                                                            title="Puedes seguir el status del ticket">En
+                                                            Proceso</span></td>
+
+                                                    <td>19/08/2022</td>
+                                                    <td><a href="#" class="btn red-font-color"><i
+                                                                class="fa-solid fa-trash"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="ticket-info.html?171976"
+                                                            class="fw-bold pink-font-color p-2"
+                                                            data-as-toggle="tooltip"
+                                                            data-as-placement="top"
+                                                            title="Presiona para ver la información del ticket">171976</a></td>
+
+                                                    <td>Daniel Rivas</td>
+                                                    <td>Mi office no tiene licencia</td>
+                                                    <td class="fw-bold">Alta</td>
+                                                    <td><span
+                                                            class="gray-font-color white-text-color href p-2"
+                                                            data-as-toggle="tooltip"
+                                                            data-as-placement="top"
+                                                            title="Puedes seguir el status del ticket">Cerrado</span>
+                                                    </td>
+                                                    <td>19/08/2022</td>
+                                                    <td><a href="#" class="btn red-font-color"><i
+                                                                class="fa-solid fa-trash"></i></a></td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Software Help Desk
+                            de ACDL
+                            Support, © Analisis de Sistemas II, UMG 2022</span>
+                    </div>
+                </footer>
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+    <script src="../../js/dashboard/alerts.js"></script>
+    <script src="../../vendors/js/vendor.bundle.base.js"></script>
+    <script src="../../js/dashboard/off-canvas.js"></script>
+    <script src="../../js/dashboard/template.js"></script>
+    <script src="../../js/dashboard/dashboard.js"></script>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+        <script>
+            var tooltipTriggerList = [].slice.call(
+              document.querySelectorAll('[data-as-toggle="tooltip"]')
+            );
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        </script>
+</body>
+
+</html>
