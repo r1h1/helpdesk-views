@@ -93,3 +93,46 @@ function validarAgregarEmpleadoAlGrupo() {
 }
 
 
+
+/* Esta función valida que el nombre de empleado esté lleno antes de presionar el botón agregar */
+
+function validarFacturables() {
+
+    //inputs
+    var nombreRecursoFacturable = document.getElementById("nombreRecursoFacturableTxt").value;
+    var cantidadRecursoFacturable = document.getElementById("cantidadRecursoFacturableTxt").value;
+    var precioRecursoFacturable = document.getElementById("precioRecursoFacturableTxt").value;
+    var descripcionRecursoFacturable = document.getElementById("descripcionRecursoFacturableTxt").value;
+
+    //mensajes
+    var nombreFacturableMensaje = document.getElementById("nombreFacturableMensaje");
+    var cantidadFacturableMensaje = document.getElementById("cantidadFacturableMensaje");
+    var precioFacturableMensaje = document.getElementById("precioFacturableMensaje");
+    var descripcionFacturableMensaje = document.getElementById("descripcionFacturableMensaje");
+
+    if (nombreRecursoFacturable, cantidadRecursoFacturable, precioRecursoFacturable, descripcionRecursoFacturable != "") {
+        nombreFacturableMensaje.style.visibility = 'hidden';
+    }
+    else {
+        nombreFacturableMensaje.style.color = "red";
+        nombreFacturableMensaje.style.fontSize = "small";
+        nombreFacturableMensaje.innerHTML = "* El valor no puede estar vacío *";
+
+        cantidadFacturableMensaje.style.color = "red";
+        cantidadFacturableMensaje.style.fontSize = "small";
+        cantidadFacturableMensaje.innerHTML = "* El valor no puede estar vacío *";
+
+        precioFacturableMensaje.style.color = "red";
+        precioFacturableMensaje.style.fontSize = "small";
+        precioFacturableMensaje.innerHTML = "* El valor no puede estar vacío *";
+
+        descripcionFacturableMensaje.style.color = "red";
+        descripcionFacturableMensaje.style.fontSize = "small";
+        descripcionFacturableMensaje.innerHTML = "* El valor no puede estar vacío *";
+    }
+
+
+
+}
+
+
