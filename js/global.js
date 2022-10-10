@@ -110,29 +110,37 @@ function validarFacturables() {
     var precioFacturableMensaje = document.getElementById("precioFacturableMensaje");
     var descripcionFacturableMensaje = document.getElementById("descripcionFacturableMensaje");
 
-    if (nombreRecursoFacturable, cantidadRecursoFacturable, precioRecursoFacturable, descripcionRecursoFacturable != "") {
+    if (nombreRecursoFacturable != "") {
         nombreFacturableMensaje.style.visibility = 'hidden';
     }
-    else {
+    if (nombreRecursoFacturable == "") {
         nombreFacturableMensaje.style.color = "red";
         nombreFacturableMensaje.style.fontSize = "small";
         nombreFacturableMensaje.innerHTML = "* El valor no puede estar vacío *";
-
+    }
+    if (cantidadRecursoFacturable != "") {
+        cantidadFacturableMensaje.style.visibility = 'hidden';
+    }
+    if (cantidadRecursoFacturable == "") {
         cantidadFacturableMensaje.style.color = "red";
         cantidadFacturableMensaje.style.fontSize = "small";
         cantidadFacturableMensaje.innerHTML = "* El valor no puede estar vacío *";
-
+    }
+    if (precioRecursoFacturable != "") {
+        precioFacturableMensaje.style.visibility = 'hidden';
+    }
+    if (precioRecursoFacturable == "") {
         precioFacturableMensaje.style.color = "red";
         precioFacturableMensaje.style.fontSize = "small";
         precioFacturableMensaje.innerHTML = "* El valor no puede estar vacío *";
-
+    }
+    if (descripcionFacturableMensaje != "") {
+        descripcionFacturableMensaje.style.visibility = 'hidden';
+    }
+    if (descripcionFacturableMensaje == "") {
         descripcionFacturableMensaje.style.color = "red";
         descripcionFacturableMensaje.style.fontSize = "small";
         descripcionFacturableMensaje.innerHTML = "* El valor no puede estar vacío *";
     }
-
-
-
 }
-
 
