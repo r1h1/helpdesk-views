@@ -3,7 +3,7 @@ function validateData() {
     var usuario = document.getElementById('usuario').value;
     var clave = document.getElementById('clave').value;
 
-    var url = 'http://helpdeskwebservices.tk/LoginUsuario';
+    var url = 'https://helpdeskwebservices.tk/LoginUsuario';
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -38,7 +38,9 @@ function validateData() {
         const message = result[0].Message;
 
         if (code == 0) {
+
             console.log('Usuario existe con rol: ' + rol);
+
             if (rol == 'Administrador') {
                 window.location.href = 'support/management/dashboard.html';
             }
@@ -46,8 +48,10 @@ function validateData() {
                 window.location.href = 'support/user/home.html';
             }
         }
+
         else {
             console.log('No permisos');
+            
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',

@@ -1,9 +1,8 @@
 function getDepartments() {
 
     document.getElementById('updateDepartment').style.display = 'none';
-    document.getElementById('saveDepartment').style.display = 'block';
 
-    var url = 'http://helpdeskwebservices.tk/api/Departamentos/';
+    var url = 'https://helpdeskwebservices.tk/api/Departamentos/';
     fetch(url)
         .then(response => response.json())
         .then(data => mostrarData(data))
@@ -32,7 +31,6 @@ function getDepartments() {
 
 function createDepartments() {
 
-    document.getElementById('updateDepartment').style.display = 'none';
     document.getElementById('saveDepartment').style.display = 'block';
 
     var nombreDepartamento = document.getElementById('nombreDepartamento').value;
@@ -60,7 +58,7 @@ function createDepartments() {
         };
 
 
-        var url = 'http://helpdeskwebservices.tk/CrearDepartamento';
+        var url = 'https://helpdeskwebservices.tk/CrearDepartamento';
 
         fetch(url, requestOptions)
             .then(response => response.text())
@@ -99,7 +97,6 @@ function createDepartments() {
 
 function deleteDepartment(id) {
 
-    document.getElementById('updateDepartment').style.display = 'none';
     document.getElementById('saveDepartment').style.display = 'block';
 
     Swal.fire({
@@ -128,7 +125,7 @@ function deleteDepartment(id) {
             };
 
 
-            var url = 'http://helpdeskwebservices.tk/EliminarDepartamento';
+            var url = 'https://helpdeskwebservices.tk/EliminarDepartamento';
 
             fetch(url, requestOptions)
                 .then(response => response.text())
@@ -197,7 +194,7 @@ function updateExistDepartment() {
     };
 
 
-    var url = 'http://helpdeskwebservices.tk/EditarDepartamento';
+    var url = 'https://helpdeskwebservices.tk/EditarDepartamento';
 
     fetch(url, requestOptions)
         .then(response => response.text())

@@ -155,22 +155,29 @@
                                                     <i class="fa-solid fa-building-user"></i>
                                                 </span>
                                                 <input type="text" class="form-control " name="departamento"
-                                                    placeholder="Nombre del Departamento *" id="nombreDepartamento" required />
+                                                    placeholder="Nombre del Departamento *" id="nombreDepartamento"
+                                                    required />
                                             </div>
 
                                         </div>
 
                                         <div class="col-md-12 mb-3 mt-2">
-                                            <button type="button"
-                                                class="btn green-font-color white-text-color mt-2 mb-2 href"
-                                                id="saveDepartment" onclick="createDepartments()"><i class="fa-solid fa-floppy-disk"></i><span
-                                                    class="p-2">Guardar</span>
-                                            </button>
-                                            <button type="button"
-                                                class="btn green-font-color white-text-color mt-2 mb-2 href"
-                                                id="updateDepartment" onclick="updateExistDepartment()"><i class="fa-solid fa-floppy-disk"></i><span
-                                                    class="p-2">Actualizar</span>
-                                            </button>
+                                            <div id="saveDepartment">
+                                                <button type="button"
+                                                    class="btn green-font-color white-text-color mt-2 mb-2 href"
+                                                    onclick="createDepartments()"><i
+                                                        class="fa-solid fa-floppy-disk"></i><span
+                                                        class="p-2">Guardar</span>
+                                                </button>
+                                            </div>
+                                            <div id="updateDepartment">
+                                                <button type="button"
+                                                    class="btn green-font-color white-text-color mt-2 mb-2 href"
+                                                    onclick="updateExistDepartment()"><i
+                                                        class="fa-solid fa-floppy-disk"></i><span
+                                                        class="p-2">Actualizar</span>
+                                                </button>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
@@ -222,7 +229,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody id="tabla-de-datos-body">
-                                                
+
                                             </tbody>
                                         </table>
                                     </div>
