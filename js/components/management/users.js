@@ -13,9 +13,6 @@ function getUsers() {
         }));
 
     const mostrarData = (data) => {
-        console.log('Se obtuvieron datos de: ' + url);
-        console.log('Método: GET')
-        console.log(data);
         let body = ''
         for (var i = 0; i < data.length; i++) {
             body += `<tr><td>${data[i].UsuarioID}</td><td>${data[i].CodigoEmpleado}</td>
@@ -26,4 +23,4 @@ function getUsers() {
 
 }
 
-setInterval(getUsers, 9000);
+getUsers();

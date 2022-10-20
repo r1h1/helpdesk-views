@@ -16,8 +16,10 @@ function getDepartments() {
     const mostrarData = (data) => {
         let body = ''
         for (var i = 0; i < data.length; i++) {
-            body += `<tr>
-            <td>${data[i].DepartamentoID}</td>
+            var j = 0;
+            body += `<tr class="departamento">
+            <td hidden>${data[i].DepartamentoID}</td>
+            <td>${j = i + 1}</td>
             <td>${data[i].Descripcion}</td>
             <td><a class="btn btn-warning text-dark fw-bold" onclick="editDepartment(${data[i].DepartamentoID}, '${data[i].Descripcion}');"><i class="fa-solid fa-pen-to-square"></i> Editar</a></td>
             <td><a class="btn btn-danger text-white fw-bold" onclick="deleteDepartment(${data[i].DepartamentoID});"><i class="fa-solid fa-trash"></i> Eliminar</a></td>
@@ -71,8 +73,6 @@ function createDepartments() {
             }));
 
         const exitoso = (result) => {
-            console.log('Se enviaron datos hacia: ' + url);
-            console.log('Método: POST');
 
             Swal.fire({
                 icon: 'success',
@@ -138,8 +138,6 @@ function deleteDepartment(id) {
                 }));
 
             const exitoso = (result) => {
-                console.log('Se enviaron datos hacia: ' + url);
-                console.log('Método: POST');
 
                 Swal.fire({
                     icon: 'success',
@@ -207,8 +205,6 @@ function updateExistDepartment() {
         }));
 
     const exitoso = (result) => {
-        console.log('Se enviaron datos hacia: ' + url);
-        console.log('Método: POST');
 
         Swal.fire({
             icon: 'success',
@@ -232,3 +228,21 @@ function updateExistDepartment() {
         });
     }
 }
+
+document.addEventListener("keyup", e => {
+
+    if (e.target.matches("#buscador")) {
+
+        if (e.key === "Escape") e.target.value = ""
+
+        document.querySelectorAll(".departamento").forEach(departamentoSelector => {
+
+            departamentoSelector.textContent.toLowerCase().includes(e.target.value.toLowerCase())
+                ? departamentoSelector.classList.remove("filtro")
+                : departamentoSelector.classList.add("filtro")
+        })
+
+    }
+
+
+});

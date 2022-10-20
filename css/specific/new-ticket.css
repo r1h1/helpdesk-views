@@ -1,5 +1,9 @@
 /* Specific CSS from index.html (Client) */
 
+.filtro{
+  display: none;
+}
+
 header nav a {
   text-decoration: none;
 }

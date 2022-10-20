@@ -5,3 +5,7 @@
 .href:hover{
     color: #ffffff;
 }
+
+.filtro{
+    display: none;
+}
