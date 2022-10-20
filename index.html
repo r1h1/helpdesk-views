@@ -24,6 +24,11 @@
   <!-- Local CSS -->
   <link rel="stylesheet" href="css/specific/login.css" />
 
+  <!-- Sweet Alert Pop Up -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.all.js"
+    integrity="sha512-L0pIRrYrKsfCidtpWhWSrrbyAcSfrvMaezfwnNGns7c7MuToIEZRabX+WmZ6+Dzn8ESNsHz7t/k6vF8aM1fVXg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/be221c52b4.js" crossorigin="anonymous"></script>
 
@@ -55,22 +60,16 @@
               <form class="login-form" action="" method="">
                 <div class="input-group">
                   <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
-                  <input type="text" class="form-control" placeholder="Usuario" name="usuario" required />
+                  <input type="text" class="form-control" placeholder="Usuario" id="usuario" required />
                 </div>
 
                 <div class="input-group">
                   <span class="input-group-text"><i class="fa-solid fa-key"></i></span>
-                  <input type="password" class="form-control" placeholder="Contraseña" name="clave" required />
+                  <input type="password" class="form-control" placeholder="Contraseña" id="clave" required />
                 </div>
 
                 <div class="action-buttons text-center">
-                  <!--<button
-                      type="submit"
-                      class="mt-4 btn blue-font-color white-text-color"
-                    >
-                      Ingresar
-                    </button>-->
-                  <a href="support/management/dashboard.html" class="btn blue-font-color mt-4 white-text-color">Ingresar</a>
+                  <a class="btn blue-font-color mt-4 white-text-color" onclick="validateData()">Ingresar</a>
                 </div>
               </form>
             </div>
@@ -92,6 +91,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+  <script src="js/components/management/login.js"></script>
 </body>
 
 </html>
