@@ -57,9 +57,13 @@ function validateData() {
                     sessionStorage.tokenAuth = data;
                     window.location.href = 'support/management/dashboard.html';
                 }
-                else {
+                else if(rol == 'User') {
                     const data = rol;
                     sessionStorage.tokenAuth = data;
+                    window.location.href = 'support/user/home.html';
+                }
+                else{
+                    sessionStorage.removeItem('tokenAuth');
                     window.location.href = 'support/user/home.html';
                 }
             }
