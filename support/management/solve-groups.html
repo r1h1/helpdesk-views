@@ -185,15 +185,14 @@
                                                 <input type="text" class="form-control" placeholder="John"
                                                     aria-label="Nombre del Empleado" name="nombreDelEmpleado"
                                                     id="nombreEmpleado" onchange="validarAgregarEmpleadoAlGrupo()
-                                                    " required>                                                                                                    
+                                                    " required>
                                             </div>
                                             <p id="empleadoMensaje"></p>
 
                                             <a class="btn blue-font-color mt-2" id="agregarEmpleadoAGrupo"
-                                            onclick="validarAgregarEmpleadoAlGrupo()"
-                                            data-as-toggle="tooltip"
-                                            data-as-placement="top"
-                                            title="Puedes agregar empleados a un grupo de soporte">
+                                                onclick="validarAgregarEmpleadoAlGrupo()" data-as-toggle="tooltip"
+                                                data-as-placement="top"
+                                                title="Puedes agregar empleados a un grupo de soporte">
                                                 + Añadir Empleado
                                             </a>
 
@@ -280,12 +279,11 @@
                                                 <tr>
                                                     <td>Mimosos</td>
                                                     <td>Hardware</td>
-                                                    <td><a href="#" class="btn pink-font-color" 
-                                                        data-bs-toggle="modal" 
-                                                        data-bs-target="#verEmpleadosPorGrupo"
-                                                        data-as-toggle="tooltip"
-                                                        data-as-placement="top"
-                                                        title="Puedes ver los empleados de un grupo de soporte"><i class="fa-solid fa-eye"></i> Ver</a></td>
+                                                    <td><a href="#" class="btn pink-font-color" data-bs-toggle="modal"
+                                                            data-bs-target="#verEmpleadosPorGrupo"
+                                                            data-as-toggle="tooltip" data-as-placement="top"
+                                                            title="Puedes ver los empleados de un grupo de soporte"><i
+                                                                class="fa-solid fa-eye"></i> Ver</a></td>
                                                     <td><a href="#" class="btn green-font-color"><i
                                                                 class="fa-solid fa-pen"></i></a></td>
                                                     <td><a href="#" class="btn red-font-color"><i
@@ -295,12 +293,15 @@
                                             </tbody>
                                         </table>
                                         <!-- Modal -->
-                                        <div class="modal fade" id="verEmpleadosPorGrupo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="verEmpleadosPorGrupo" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Empleados en el Grupo</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        <h5 class="modal-title" id="exampleModalLabel">Empleados en el
+                                                            Grupo</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
                                                         <ul>
@@ -309,7 +310,7 @@
                                                             <li>Abner</li>
                                                             <li>Christian Arriaza</li>
                                                         </ul>
-                                                    </div>                                                
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -347,13 +348,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    <script src="../../js/components/management/solve-groups.js"></script>
     <script>
         var tooltipTriggerList = [].slice.call(
-          document.querySelectorAll('[data-as-toggle="tooltip"]')
+            document.querySelectorAll('[data-as-toggle="tooltip"]')
         );
         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl);
+            return new bootstrap.Tooltip(tooltipTriggerEl);
         });
+
+        permissionAuthLogin();
     </script>
 </body>
 

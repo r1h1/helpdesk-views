@@ -37,21 +37,26 @@ function validateData() {
         const rol = result[0].Rol;
         const message = result[0].Message;
 
+
         if (code == 0) {
 
-            console.log('Usuario existe con rol: ' + rol);
+            console.log('Usuario existe con rol: ' + rol, ' El mensaje del API fue: ' + message);
 
             if (rol == 'Administrador') {
+                const data = rol;
+                sessionStorage.tokenAuth = data;
                 window.location.href = 'support/management/dashboard.html';
             }
             else {
+                const data = rol;
+                sessionStorage.tokenAuth = data;
                 window.location.href = 'support/user/home.html';
             }
         }
 
         else {
             console.log('No permisos');
-            
+
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',

@@ -1,3 +1,31 @@
+function permissionAuthLogin() {
+
+    var dataTokenFromSuccessLogin = sessionStorage.tokenAuth;
+
+    if (dataTokenFromSuccessLogin == '' || dataTokenFromSuccessLogin == null) {
+        sessionStorage.removeItem('tokenAuth');
+        window.location.href = '../../index.html';
+    }
+    else if(dataTokenFromSuccessLogin != 'Administrador') {
+        sessionStorage.removeItem('tokenAuth');
+        window.location.href = '../../index.html';
+    }
+    else if(dataTokenFromSuccessLogin == 'Administrador'){
+        console.log('sesionAprobada');
+    }
+    else{
+        sessionStorage.removeItem('tokenAuth');
+        window.location.href = '../../index.html';
+    }
+}
+
+function closeSession(){
+
+    sessionStorage.removeItem('tokenAuth');
+    window.location.href = '../../index.html';
+}
+
+
 function getDepartments() {
 
     document.getElementById('updateDepartment').style.display = 'none';
@@ -20,7 +48,7 @@ function getDepartments() {
             body += `<tr class="departamento">
             <td hidden>${data[i].DepartamentoID}</td>
             <td>${j = i + 1}</td>
-            <td>${data[i].Descripcion}</td>
+            <td class="text-uppercase">${data[i].Descripcion}</td>
             <td><a class="btn btn-warning text-dark fw-bold" onclick="editDepartment(${data[i].DepartamentoID}, '${data[i].Descripcion}');"><i class="fa-solid fa-pen-to-square"></i> Editar</a></td>
             <td><a class="btn btn-danger text-white fw-bold" onclick="deleteDepartment(${data[i].DepartamentoID});"><i class="fa-solid fa-trash"></i> Eliminar</a></td>
             </tr>`

@@ -53,7 +53,7 @@
                 </button>
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-link">
-                        <a class="nav-link btn red-font-color white-text-color w-100 p-2" href="../../index.html">
+                        <a class="nav-link btn red-font-color white-text-color w-100 p-2" href="../../index.html" onclick="closeSession()">
                             Cerrar Sesión
                         </a>
                     </li>
@@ -154,9 +154,9 @@
                                                 <span class="input-group-text">
                                                     <i class="fa-solid fa-building-user"></i>
                                                 </span>
-                                                <input type="text" class="form-control " name="departamento"
-                                                    placeholder="Nombre del Departamento *" id="nombreDepartamento"
-                                                    required />
+                                                <input type="text" class="form-control text-uppercase"
+                                                    name="departamento" placeholder="Nombre del Departamento *"
+                                                    id="nombreDepartamento" required />
                                             </div>
 
                                         </div>
@@ -213,7 +213,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody id="tabla-de-datos-body">
-                                                
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -251,6 +251,7 @@
         crossorigin="anonymous"></script>
     <script src="../../js/components/management/departments.js"></script>
     <script>
+        permissionAuthLogin();
         getDepartments();
     </script>
 </body>

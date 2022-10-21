@@ -36,7 +36,8 @@
     <nav class="navbar navbar-light white-font-color">
       <div class="container-sm">
         <a class="navbar-brand" name="imagen-logo">
-          <img src="../../img/support-logo.png" alt="logo-img" width="70" height="70" class="d-inline-block align-text-top" />
+          <img src="../../img/support-logo.png" alt="logo-img" width="70" height="70"
+            class="d-inline-block align-text-top" />
         </a>
       </div>
     </nav>
@@ -75,21 +76,18 @@
         <div class="row principal-options mt-4">
           <div class="col">
             <i class="fa-solid fa-circle-plus gray-text-color"></i>
-            <span data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  title="Puedes crear un nuevo ticket de soporte acá"><a href="new-ticket.html">Nuevo Ticket</a></span>
+            <span data-bs-toggle="tooltip" data-bs-placement="top"
+              title="Puedes crear un nuevo ticket de soporte acá"><a href="new-ticket.html">Nuevo Ticket</a></span>
           </div>
           <div class="col">
             <i class="fa-solid fa-chart-line gray-text-color"></i>
-            <span data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  title="Puedes visualizar tus tickets creados acá"><a href="status-ticket.html">Tus Tickets</a></span>
+            <span data-bs-toggle="tooltip" data-bs-placement="top" title="Puedes visualizar tus tickets creados acá"><a
+                href="status-ticket.html">Tus Tickets</a></span>
           </div>
           <div class="col">
             <i class="fa-solid fa-square-phone-flip gray-text-color"></i>
-            <span data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  title="Puedes llamar directamente a nuestra linea de ayuda acá"><a href="tel:45024366">Llamar</a></span>
+            <span data-bs-toggle="tooltip" data-bs-placement="top"
+              title="Puedes llamar directamente a nuestra linea de ayuda acá"><a href="tel:45024366">Llamar</a></span>
           </div>
         </div>
       </div>
@@ -190,14 +188,17 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
-    <script>
-      var tooltipTriggerList = [].slice.call(
-        document.querySelectorAll('[data-bs-toggle="tooltip"]')
-      );
-      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl);
-      });
-    </script>
+  <script src="../../js/components/user/home.js"></script>
+  <script>
+    var tooltipTriggerList = [].slice.call(
+      document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    );
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+
+    permissionAuthLogin();
+  </script>
 </body>
 
 </html>
