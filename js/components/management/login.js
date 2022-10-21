@@ -7,7 +7,7 @@ function validateData() {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Debe llenar los datos para continuar'
+            text: 'Ingresa tu usuario y contraseña para acceder'
         });
     }
 
@@ -52,29 +52,41 @@ function validateData() {
 
                 console.log('Usuario existe con rol: ' + rol, ' El mensaje del API fue: ' + message);
 
-                if (rol == 'Administrador') {
+                if (rol == null || rol == 'N/A') {
+                    sessionStorage.removeItem('tokenAuth');
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'No cuentas con permisos suficientes para acceder'
+                    });
+                }
+
+                else if (rol == 'Administrador') {
                     const data = rol;
                     sessionStorage.tokenAuth = data;
                     window.location.href = 'support/management/dashboard.html';
                 }
-                else if(rol == 'User') {
+                else if (rol == 'User') {
                     const data = rol;
                     sessionStorage.tokenAuth = data;
                     window.location.href = 'support/user/home.html';
                 }
-                else{
+
+                else {
                     sessionStorage.removeItem('tokenAuth');
-                    window.location.href = 'support/user/home.html';
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'No cuentas con permisos suficientes para acceder'
+                    });
                 }
             }
 
             else {
-                console.log('No permisos');
-
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: 'Usuario y/o Contraseña Incorrecto, verifique.'
+                    text: 'Usuario y/o Contraseña Incorrecto, verifique'
                 });
             }
 
