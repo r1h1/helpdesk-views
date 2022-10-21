@@ -228,7 +228,7 @@ function updateExistDepartment() {
         .catch(error => Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Hubo un error al eliminar el departamento, código de error: ' + error,
+            text: 'Hubo un error en la operación, código de error: ' + error,
             confirmButtonText: 'Entendido',
         }));
 

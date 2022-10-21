@@ -150,118 +150,163 @@
                             <div class="card white-font-color">
                                 <div class="card-body w-100">
                                     <p class="fw-bold">Nuevo Usuario</p>
-                                    <form class="issue-form m-4 row" action="" method="">
 
-                                        <div class="col-sm-12 col-md-8 col-lg-12 mb-3 mt-4">
-                                            <label for="" class="form-label">Código de Empleado *</label>
+                                    <form class="issue-form m-4 row needs-validation" novalidate>
+
+                                        <div class="col-sm-12 col-md-8 col-lg-12 mb-3 mt-4" hidden>
+                                            <label for="" class="form-label">ID EMPLEADO</label>
                                             <div class="input-group">
                                                 <span class="input-group-text ">
                                                     <i class="fa-solid fa-user"></i>
                                                 </span>
-                                                <input type="text" class="form-control " name="codigoEmpleado"
+                                                <input type="text" class="form-control " id="idEmpleado"
                                                     placeholder="G125GG" maxlength="10" required />
                                             </div>
                                         </div>
 
-                                        <div class="col-sm-12 col-md-12 col-lg-12 mb-3 mt-2">
-                                            <label for="" class="form-label">Nombre *</label>
-                                            <div class="input-group">
+                                        <div class="col-sm-12 col-md-8 col-lg-12 mb-3 mt-4">
+                                            <label for="" class="form-label">Código de Empleado *</label>
+                                            <div class="input-group has-validation">
                                                 <span class="input-group-text ">
                                                     <i class="fa-solid fa-user"></i>
                                                 </span>
-                                                <input type="text" class="form-control " name="nombre" maxlength="100"
+                                                <input type="number" class="form-control " id="codigoEmpleado"
+                                                    placeholder="G125GG" maxlength="10" required />
+                                                <div class="invalid-feedback">
+                                                    Por favor, completa este campo para continuar.
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-sm-12 col-md-12 col-lg-12 mb-3 mt-2">
+                                            <label for="" class="form-label">Nombre *</label>
+                                            <div class="input-group has-validation">
+                                                <span class="input-group-text">
+                                                    <i class="fa-solid fa-user"></i>
+                                                </span>
+                                                <input type="text" class="form-control " id="nombre" maxlength="100"
                                                     placeholder="John" required />
+                                                <div class="invalid-feedback">
+                                                    Por favor, completa este campo para continuar.
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-12 col-md-12 col-lg-12 mb-3 mt-2">
                                             <label for="" class="form-label">Apellido *</label>
-                                            <div class="input-group">
+                                            <div class="input-group has-validation">
                                                 <span class="input-group-text ">
                                                     <i class="fa-solid fa-user"></i>
                                                 </span>
-                                                <input type="text" class="form-control " name="apellido" maxlength="100"
+                                                <input type="text" class="form-control " id="apellido" maxlength="100"
                                                     placeholder="McCarty" required />
+                                                <div class="invalid-feedback">
+                                                    Por favor, completa este campo para continuar.
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-12 col-md-4 col-lg-12 mb-3 mt-2">
                                             <label for="" class="form-label">Departamento *</label>
-                                            <div class="input-group">
+                                            <input type="text" class="form-control " id="deptoActual" maxlength="100"
+                                                placeholder="" readonly />
+                                            <div class="input-group has-validation">
                                                 <span class="input-group-text ">
                                                     <i class="fa-solid fa-building-user"></i>
                                                 </span>
-                                                <select class="form-select " name="departamento" required>
-                                                    <option value="a">A</option>
-                                                    <option value="b">B</option>
-                                                    <option value="c">C</option>
+                                                <select class="form-select text-uppercase" name="departamento"
+                                                    id="departamentos" required>
+
                                                 </select>
+                                                <div class="invalid-feedback">
+                                                    Por favor, completa este campo para continuar.
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-12 col-md-4 col-lg-12 mb-3 mt-2">
                                             <label for="" class="form-label">Rol *</label>
-                                            <div class="input-group">
+                                            <input type="text" class="form-control " id="rolActual" maxlength="100"
+                                                placeholder="" readonly />
+                                            <div class="input-group has-validation">
                                                 <span class="input-group-text ">
                                                     <i class="fa-solid fa-user-tag"></i>
                                                 </span>
-                                                <select class="form-select " name="rol" required>
-                                                    <option value="a">Administrador</option>
-                                                    <option value="b">Editor</option>
-                                                    <option value="c">Lector</option>
+                                                <select class="form-select " id="rol" required>
+                                                    <option value="Administrador">Administrador</option>
+                                                    <option value="User">Usuario</option>
                                                 </select>
+                                                <div class="invalid-feedback">
+                                                    Por favor, completa este campo para continuar.
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-12 col-md-4 col-lg-12 mb-3 mt-2">
                                             <label for="" class="form-label">Estado *</label>
-                                            <div class="input-group">
+                                            <div class="input-group has-validation">
                                                 <span class="input-group-text ">
                                                     <i class="fa-solid fa-circle-question"></i>
                                                 </span>
-                                                <select class="form-select " name="status" required>
-                                                    <option value="a">Activo</option>
-                                                    <option value="b">Inactivo</option>
+                                                <select class="form-select " id="status" required>
+                                                    <option value="1">Activo</option>
+                                                    <option value="2">Inactivo</option>
                                                 </select>
+                                                <div class="invalid-feedback">
+                                                    Por favor, completa este campo para continuar.
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-12 col-md-6 col-lg-12 mb-3 mt-2">
                                             <label for="" class="form-label">Usuario *</label>
-                                            <div class="input-group">
+                                            <div class="input-group has-validation">
                                                 <span class="input-group-text ">
                                                     <i class="fa-solid fa-user"></i>
                                                 </span>
-                                                <input type="text" class="form-control " name="usuario" maxlength="10"
+                                                <input type="text" class="form-control " id="usuario" maxlength="10"
                                                     placeholder="john123" required />
+                                                <div class="invalid-feedback">
+                                                    Por favor, completa este campo para continuar.
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-12 col-md-6 col-lg-12 mb-3 mt-2">
                                             <label for="" class="form-label">Contraseña *</label>
-                                            <div class="input-group">
+                                            <div class="input-group has-validation">
                                                 <span class="input-group-text ">
                                                     <i class="fa-solid fa-key"></i>
                                                 </span>
-                                                <input type="password" class="form-control " name="userPass"
-                                                    id="userPassword" placeholder="Contraseña *"
-                                                    onchange="validarContrasena(this.value)" required />
+                                                <input type="password" class="form-control " id="password"
+                                                    placeholder="Contraseña *" required />
+                                                <div class="invalid-feedback">
+                                                    Por favor, completa este campo para continuar.
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-12 mb-3 mt-3">
-                                            <button type="submit"
-                                                class="btn green-font-color white-text-color mt-2 mb-2 href"
-                                                id="submitUser">
-                                                <i class="fa-solid fa-floppy-disk"></i><span class="p-2">Guardar</span>
-                                            </button>
+                                        <div class="col-md-12 mb-3 mt-2">
 
-                                            <a class="btn green-font-color btn green-font-color white-text-color mt-2 mb-2 href"
-                                                id="submitUserFake"
-                                                onclick="validarContrasena(document.getElementById('userPassword').value)"><i
-                                                    class="fa-solid fa-floppy-disk"></i><span
-                                                    class="p-2">Guardar</span></a>
+                                            <div id="saveUser">
+                                                <button
+                                                    class="btn green-font-color white-text-color mt-2 mb-2"
+                                                    onclick="createUser()"><i class="fa-solid fa-floppy-disk"
+                                                        id="buttonAdd"></i><span class="p-2">Guardar</span>
+                                                </button>
+                                            </div>
+
+                                            <div id="updateDivUser">
+                                                <button
+                                                    class="btn green-font-color white-text-color mt-2 mb-2"
+                                                    onclick="updateUser()"><i class="fa-solid fa-floppy-disk"></i><span
+                                                        class="p-2">Actualizar</span>
+                                                </button>
+                                            </div>
+
                                         </div>
+
                                     </form>
                                 </div>
                             </div>
@@ -275,26 +320,10 @@
                                     <div class="row g-3 mt-3">
 
                                         <div class="col-md-6">
-                                            <label for="" class="form-label mt-3">Filtrar por</label>
+                                            <label for="" class="form-label mt-3">Buscar Algo</label>
                                             <div class="input-group">
-                                                <select class="form-select form-select-sm mt-2"
-                                                    aria-label="Default select example" name="filtrarPor">
-                                                    <option value="">Seleccione...</option>
-                                                    <option value="1">Ascendente</option>
-                                                    <option value="2">Descendente</option>
-                                                    <option value="3">A-Z</option>
-                                                    <option value="4">Z-A</option>
-                                                </select>
-                                                <span class="input-group-text mt-2">
-                                                    <i class="fa-solid fa-filter"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="" class="form-label mt-3">Buscar por</label>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control mt-2" placeholder=""
-                                                    aria-label="Buscar por" name="buscarPor">
+                                                <input type="text" class="form-control mt-2" placeholder="Buscar..."
+                                                    aria-label="Buscar por" name="buscador" id="buscador">
                                                 <span class="input-group-text mt-2">
                                                     <i class="fa-solid fa-magnifying-glass"></i>
                                                 </span>
@@ -309,7 +338,6 @@
                                                     <th scope="col">Código</th>
                                                     <th scope="col">Usuario</th>
                                                     <th scope="col">Nombre</th>
-                                                    <th scope="col">Apellido</th>
                                                     <th scope="col">Depto</th>
                                                     <th scope="col">Rol</th>
                                                     <th scope="col">Estado</th>
@@ -360,6 +388,26 @@
     <script>
         permissionAuthLogin();
         getUsers();
+
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (() => {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation');
+
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
     </script>
 </body>
 
