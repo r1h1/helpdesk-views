@@ -1,9 +1,9 @@
 function validateData() {
 
-    var usuario = document.getElementById('usuario').value;
+    var usuarioInput = document.getElementById('usuario').value;
     var clave = document.getElementById('clave').value;
 
-    if (usuario == '' || clave == '' || usuario == '' && clave == '') {
+    if (usuarioInput == '' || clave == '' || usuarioInput == '' && clave == '') {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -19,7 +19,7 @@ function validateData() {
         myHeaders.append("Content-Type", "application/json");
 
         var raw = JSON.stringify({
-            "UserName": '' + usuario + '',
+            "UserName": '' + usuarioInput + '',
             "UserPass": '' + clave + ''
         });
 
