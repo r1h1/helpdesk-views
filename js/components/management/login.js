@@ -54,6 +54,7 @@ function validateData() {
 
                 if (rol == null || rol == 'N/A') {
                     sessionStorage.removeItem('tokenAuth');
+                    sessionStorage.removeItem('user');
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
@@ -62,18 +63,23 @@ function validateData() {
                 }
 
                 else if (rol == 'Administrador') {
-                    const data = rol;
+                    const data = rol; //rol
+                    
                     sessionStorage.tokenAuth = data;
+                    sessionStorage.user = usuario;
                     window.location.href = 'support/management/dashboard.html';
                 }
                 else if (rol == 'User') {
                     const data = rol;
+
                     sessionStorage.tokenAuth = data;
+                    sessionStorage.user = usuario;
                     window.location.href = 'support/user/home.html';
                 }
 
                 else {
                     sessionStorage.removeItem('tokenAuth');
+                    sessionStorage.removeItem('user');
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',

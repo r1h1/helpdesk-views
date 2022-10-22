@@ -226,24 +226,6 @@
                                         </div>
 
                                         <div class="col-sm-12 col-md-4 col-lg-12 mb-3 mt-2">
-                                            <label for="" class="form-label">Rol *</label>
-                                            <input type="text" class="form-control " id="rolActual" maxlength="100"
-                                                placeholder="" readonly />
-                                            <div class="input-group has-validation">
-                                                <span class="input-group-text ">
-                                                    <i class="fa-solid fa-user-tag"></i>
-                                                </span>
-                                                <select class="form-select " id="rol" required>
-                                                    <option value="Administrador">Administrador</option>
-                                                    <option value="User">Usuario</option>
-                                                </select>
-                                                <div class="invalid-feedback">
-                                                    Por favor, completa este campo para continuar.
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-12 col-md-4 col-lg-12 mb-3 mt-2">
                                             <label for="" class="form-label">Estado *</label>
                                             <div class="input-group has-validation">
                                                 <span class="input-group-text ">
@@ -290,16 +272,14 @@
                                         <div class="col-md-12 mb-3 mt-2">
 
                                             <div id="saveUser">
-                                                <button
-                                                    class="btn green-font-color white-text-color mt-2 mb-2"
+                                                <button class="btn green-font-color white-text-color mt-2 mb-2"
                                                     onclick="createUser()"><i class="fa-solid fa-floppy-disk"
                                                         id="buttonAdd"></i><span class="p-2">Guardar</span>
                                                 </button>
                                             </div>
 
                                             <div id="updateDivUser">
-                                                <button
-                                                    class="btn green-font-color white-text-color mt-2 mb-2"
+                                                <button class="btn green-font-color white-text-color mt-2 mb-2"
                                                     onclick="updateUser()"><i class="fa-solid fa-floppy-disk"></i><span
                                                         class="p-2">Actualizar</span>
                                                 </button>
@@ -308,6 +288,39 @@
                                         </div>
 
                                     </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="asignarRolModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Asignación de Rol</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input type="text" id="idUsuarioAsignarRol" hidden>
+                                        <label for="" class="form-label">Rol *</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text ">
+                                                <i class="fa-solid fa-user-tag"></i>
+                                            </span>
+                                            <select class="form-select" id="rolAsignar">
+                                                <option value="1">Administrador</option>
+                                                <option value="2">Usuario</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer text-center">
+                                        <button class="btn green-font-color white-text-color mt-2 mb-2"
+                                            onclick="assignRole()"><i class="fa-solid fa-floppy-disk"></i><span
+                                                class="p-2">Guardar</span>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -342,8 +355,9 @@
                                                     <th scope="col">Rol</th>
                                                     <th scope="col">Estado</th>
                                                     <th scope="col">Contraseña</th>
-                                                    <th scope="col">Editar</th>
-                                                    <th scope="col">Eliminar</th>
+                                                    <th scope="col"></th>
+                                                    <th scope="col"></th>
+                                                    <th scope="col"></th>
                                                 </tr>
                                             </thead>
                                             <tbody id="tabla-de-datos-body">
@@ -361,7 +375,8 @@
                 <!-- partial:partials/_footer.html -->
                 <footer class="footer">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Software Help Desk
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Software Help
+                            Desk
                             de ACDL
                             Support, © Analisis de Sistemas II, UMG 2022</span>
                     </div>

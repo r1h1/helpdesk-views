@@ -1,6 +1,7 @@
 function permissionAuthLogin() {
 
     var dataTokenFromSuccessLogin = sessionStorage.tokenAuth;
+    var userLog = sessionStorage.user;
 
     if (dataTokenFromSuccessLogin == '' || dataTokenFromSuccessLogin == null) {
         sessionStorage.removeItem('tokenAuth');

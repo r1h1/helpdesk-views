@@ -1,6 +1,7 @@
 function permissionAuthLogin() {
 
     var dataTokenFromSuccessLogin = sessionStorage.tokenAuth;
+    var userLog = sessionStorage.user;
 
     if (dataTokenFromSuccessLogin == '' || dataTokenFromSuccessLogin == null) {
         sessionStorage.removeItem('tokenAuth');
@@ -19,7 +20,6 @@ function permissionAuthLogin() {
     }
 
     document.getElementById('deptoActual').style.display = 'none';
-    document.getElementById('rolActual').style.display = 'none';
     document.getElementById('saveUser').style.display = 'block';
     document.getElementById('updateDivUser').style.display = 'none';
 }
@@ -47,6 +47,7 @@ function getUsers() {
 
     const mostrarData = (data) => {
         let body = '';
+
         for (var i = 0; i < data.length; i++) {
 
             var estadoUsuario = data[i].Estado.toString();
@@ -66,6 +67,7 @@ function getUsers() {
                         , '${data[i].Departamento}', '${data[i].Rol}', 'Pruebas#12345');">
                     <i class="fa-solid fa-pen-to-square"></i> Editar</a>
                 </td>
+                <td><button class="btn btn-primary text-white fw-bold" disabled><i class="fa-solid fa-user-tag"></i> Asignar Rol</button></td>
                 <td><button class="btn btn-danger text-white fw-bold" onclick="deleteUser(${data[i].CodigoEmpleado});" disabled><i class="fa-solid fa-trash"></i> Deshabilitar</button></td>
                 </tr>`
             }
@@ -85,6 +87,8 @@ function getUsers() {
                         , '${data[i].Departamento}', '${data[i].Rol}', 'Pruebas#12345');">
                     <i class="fa-solid fa-pen-to-square"></i> Editar</a>
                 </td>
+                <td><button class="btn btn-primary text-white fw-bold" data-bs-toggle="modal" data-bs-target="#asignarRolModal"
+                onclick="document.getElementById('idUsuarioAsignarRol').value = ${data[i].UsuarioID};"><i class="fa-solid fa-user-tag"></i> Asignar Rol</button></td>
                 <td><button class="btn btn-danger text-white fw-bold" onclick="deleteUser(${data[i].CodigoEmpleado});"><i class="fa-solid fa-trash"></i> Deshabilitar</button></td>
                 </tr>`
             }
@@ -94,7 +98,10 @@ function getUsers() {
                 </tr>`
             }
         }
+
+
         document.getElementById('tabla-de-datos-body').innerHTML = body
+
     }
 
 }
@@ -135,7 +142,6 @@ function createUser() {
     var nombre = document.getElementById('nombre').value;
     var apellido = document.getElementById('apellido').value;
     var departamento = document.getElementById('departamentos').value;
-    var rol = document.getElementById('rol').value;
     var estado = document.getElementById('status').value;
     var contraseña = document.getElementById('password').value;
 
@@ -203,6 +209,69 @@ function createUser() {
 }
 
 
+function assignRole() {
+
+
+    document.getElementById('saveUser').style.display = 'block';
+    document.getElementById('updateDivUser').style.display = 'none';
+
+    var usuarioId = document.getElementById('idUsuarioAsignarRol').value;
+    var rolId = document.getElementById('rolAsignar').value;
+
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+        "UsuarioID": '' + usuarioId + '',
+        "RolID": rolId
+    });
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+
+
+    var url = 'https://helpdeskwebservices.tk/AsingarRol';
+
+    fetch(url, requestOptions)
+        .then(response => response.text())
+        .then(result => exitoso(result))
+        .catch(error => Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Hubo un error en la operación, código de error: ' + error,
+            confirmButtonText: 'Entendido',
+        }));
+
+    const exitoso = (result) => {
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Correcto',
+            text: 'La operación se completó.',
+            confirmButtonText: 'Entendido',
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                $('#asignarRolModal').modal('toggle');
+                getDepartments();
+                getUsers();
+
+            } else if (result.isDenied) {
+
+                $('#asignarRolModal').modal('toggle');
+                getDepartments();
+                getUsers();
+            }
+        });
+    }
+}
+
+
 function editUser(id, codigoEmpleado, usuario, nombre, apellido, departamento, rol, contraseña) {
 
     document.getElementById('saveUser').style.display = 'none';
@@ -214,16 +283,15 @@ function editUser(id, codigoEmpleado, usuario, nombre, apellido, departamento, r
     document.getElementById('nombre').value = nombre;
     document.getElementById('apellido').value = apellido;
     document.getElementById('deptoActual').value = 'ACTUAL:  ' + departamento.toUpperCase();
-    document.getElementById('rolActual').value = 'ACTUAL:  ' + rol.toUpperCase();
     document.getElementById('status').value = 1;
     document.getElementById('password').value = "";
 
     document.getElementById('deptoActual').style.display = 'block';
-    document.getElementById('rolActual').style.display = 'block';
 
 }
 
 function updateUser() {
+
 }
 
 
