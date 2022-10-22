@@ -49,10 +49,11 @@ function getUsers() {
         let body = '';
 
         for (var i = 0; i < data.length; i++) {
-
+            
             var estadoUsuario = data[i].Estado.toString();
 
             if (estadoUsuario == 'INACTIVO') {
+
                 body += `<tr class="usuario text-center">
                 <td hidden>${data[i].UsuarioID}</td>
                 <td>${data[i].CodigoEmpleado}</td>
@@ -65,14 +66,15 @@ function getUsers() {
                 <td><a class="btn btn-warning text-dark fw-bold" 
                     onclick="editUser(${data[i].UsuarioID}, ${data[i].CodigoEmpleado}, '${data[i].Usuario}', '${data[i].Nombre}', '${data[i].Apellido}'
                         , '${data[i].Departamento}', '${data[i].Rol}', 'Pruebas#12345');">
-                    <i class="fa-solid fa-pen-to-square"></i> Editar</a>
+                    <i class="fa-solid fa-pen-to-square"></i></a>
+                    <button class="btn btn-primary text-white fw-bold" disabled><i class="fa-solid fa-user-tag"></i></button>
+                    <button class="btn btn-danger text-white fw-bold" onclick="deleteUser(${data[i].CodigoEmpleado});" disabled><i class="fa-solid fa-trash"></i></button>
                 </td>
-                <td><button class="btn btn-primary text-white fw-bold" disabled><i class="fa-solid fa-user-tag"></i> Asignar Rol</button></td>
-                <td><button class="btn btn-danger text-white fw-bold" onclick="deleteUser(${data[i].CodigoEmpleado});" disabled><i class="fa-solid fa-trash"></i> Deshabilitar</button></td>
-                </tr>`
+                </tr>`;
             }
 
             else if (estadoUsuario == 'ACTIVO') {
+
                 body += `<tr class="usuario text-center">
                 <td hidden>${data[i].UsuarioID}</td>
                 <td>${data[i].CodigoEmpleado}</td>
@@ -85,22 +87,22 @@ function getUsers() {
                 <td><a class="btn btn-warning text-dark fw-bold" 
                     onclick="editUser(${data[i].UsuarioID}, ${data[i].CodigoEmpleado}, '${data[i].Usuario}', '${data[i].Nombre}', '${data[i].Apellido}'
                         , '${data[i].Departamento}', '${data[i].Rol}', 'Pruebas#12345');">
-                    <i class="fa-solid fa-pen-to-square"></i> Editar</a>
+                    <i class="fa-solid fa-pen-to-square"></i></a>
+                    <button class="btn btn-primary text-white fw-bold" data-bs-toggle="modal" data-bs-target="#asignarRolModal"
+                        onclick="document.getElementById('idUsuarioAsignarRol').value = ${data[i].UsuarioID};"><i class="fa-solid fa-user-tag"></i></button>
+                    <button class="btn btn-danger text-white fw-bold" onclick="deleteUser(${data[i].CodigoEmpleado});"><i class="fa-solid fa-trash"></i></button>
                 </td>
-                <td><button class="btn btn-primary text-white fw-bold" data-bs-toggle="modal" data-bs-target="#asignarRolModal"
-                onclick="document.getElementById('idUsuarioAsignarRol').value = ${data[i].UsuarioID};"><i class="fa-solid fa-user-tag"></i> Asignar Rol</button></td>
-                <td><button class="btn btn-danger text-white fw-bold" onclick="deleteUser(${data[i].CodigoEmpleado});"><i class="fa-solid fa-trash"></i> Deshabilitar</button></td>
-                </tr>`
+                </tr>`;
             }
             else {
                 body += `<tr class="usuario">
                     <td>-- No existen datos para mostrar --</td>
-                </tr>`
+                </tr>`;
             }
         }
 
 
-        document.getElementById('tabla-de-datos-body').innerHTML = body
+        document.getElementById('tabla-de-datos-body').innerHTML = body;
 
     }
 
@@ -299,10 +301,10 @@ function deleteUser(id) {
 
     Swal.fire({
         icon: 'warning',
-        title: '¿Está seguro que desea borrar?',
-        text: 'Si presiona eliminar, tome en cuenta que no se podrá recuperar',
+        title: '¿Está seguro?',
+        text: 'Si presiona desactivar, el usuario no podrá utilizar el sistema hasta que se active nuevamente',
         showDenyButton: true,
-        confirmButtonText: 'Eliminar',
+        confirmButtonText: 'Continuar',
         denyButtonText: `Cancelar`,
     }).then((result) => {
 
