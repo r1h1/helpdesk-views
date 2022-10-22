@@ -19,6 +19,7 @@ function permissionAuthLogin() {
 function closeSession(){
 
     sessionStorage.removeItem('tokenAuth');
+    sessionStorage.removeItem('user');
     window.location.href = '../../index.html';
     
 }
