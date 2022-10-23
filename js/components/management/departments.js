@@ -50,8 +50,10 @@ function getDepartments() {
             <td hidden>${data[i].DepartamentoID}</td>
             <td>${j = i + 1}</td>
             <td class="text-uppercase">${data[i].Descripcion}</td>
-            <td><a class="btn btn-warning text-dark fw-bold" onclick="editDepartment(${data[i].DepartamentoID}, '${data[i].Descripcion}');"><i class="fa-solid fa-pen-to-square"></i> Editar</a></td>
-            <td><a class="btn btn-danger text-white fw-bold" onclick="deleteDepartment(${data[i].DepartamentoID});"><i class="fa-solid fa-trash"></i> Eliminar</a></td>
+            <td>
+                <a class="btn btn-warning text-dark fw-bold" onclick="editDepartment(${data[i].DepartamentoID}, '${data[i].Descripcion}');"><i class="fa-solid fa-pen-to-square"></i></a>
+                <a class="btn btn-danger text-white fw-bold" onclick="deleteDepartment(${data[i].DepartamentoID});"><i class="fa-solid fa-trash"></i></a>
+            </td>
             </tr>`
         }
         document.getElementById('tabla-de-datos-body').innerHTML = body
@@ -192,11 +194,11 @@ function deleteDepartment(id) {
 
 function editDepartment(id, descripcion) {
 
-    var idDepartamento = document.getElementById('idDepartamento').value = id;
-    var nombreDepartamento = document.getElementById('nombreDepartamento').value = descripcion;
+    document.getElementById('idDepartamento').value = id;
+    document.getElementById('nombreDepartamento').value = descripcion;
 
-    var updateButton = document.getElementById('updateDepartment').style.display = 'block';
-    var saveDepartmentButton = document.getElementById('saveDepartment').style.display = 'none';
+    document.getElementById('updateDepartment').style.display = 'block';
+    document.getElementById('saveDepartment').style.display = 'none';
 
 }
 
@@ -243,14 +245,15 @@ function updateExistDepartment() {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                var updateButton = document.getElementById('updateDepartment').style.display = 'none';
-                var saveDepartmentButton = document.getElementById('saveDepartment').style.display = 'block';
+                document.getElementById('updateDepartment').style.display = 'none';
+                document.getElementById('saveDepartment').style.display = 'block';
                 document.getElementById('nombreDepartamento').value = '';
                 getDepartments();
+                
             } else if (result.isDenied) {
 
-                var updateButton = document.getElementById('updateDepartment').style.display = 'none';
-                var saveDepartmentButton = document.getElementById('saveDepartment').style.display = 'block';
+                document.getElementById('updateDepartment').style.display = 'none';
+                document.getElementById('saveDepartment').style.display = 'block';
                 document.getElementById('nombreDepartamento').value = '';
                 getDepartments();
             }

@@ -49,7 +49,7 @@ function getUsers() {
         let body = '';
 
         for (var i = 0; i < data.length; i++) {
-            
+
             var estadoUsuario = data[i].Estado.toString();
 
             if (estadoUsuario == 'INACTIVO') {
@@ -286,13 +286,78 @@ function editUser(id, codigoEmpleado, usuario, nombre, apellido, departamento, r
     document.getElementById('apellido').value = apellido;
     document.getElementById('deptoActual').value = 'ACTUAL:  ' + departamento.toUpperCase();
     document.getElementById('status').value = 1;
-    document.getElementById('password').value = "";
+    document.getElementById('password').value = "contraseñafalsafalsa";
 
+    document.getElementById('usuario').readOnly = true;
+    document.getElementById('password').readOnly = true;
     document.getElementById('deptoActual').style.display = 'block';
 
 }
 
 function updateUser() {
+
+    var codigoEmpleado = document.getElementById('codigoEmpleado').value;
+    var nombre = document.getElementById('nombre').value;
+    var apellido = document.getElementById('apellido').value;
+    var deptoActual = document.getElementById('departamentos').value;
+    var status = document.getElementById('status').value;
+
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+        "CodigoEmpleado": codigoEmpleado,
+        "Nombre": '' + nombre + '',
+        "Apellido": '' + apellido + '',
+        "DepartamentoID": deptoActual,
+        "EstadoID": status
+    });
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+
+
+    var url = 'https://helpdeskwebservices.tk/EditarUsuario';
+
+    fetch(url, requestOptions)
+        .then(response => response.text())
+        .then(result => exitoso(result))
+        .catch(error => Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Hubo un error en la operación, código de error: ' + error,
+            confirmButtonText: 'Entendido',
+        }));
+
+    const exitoso = (result) => {
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Correcto',
+            text: 'La operación se completó.',
+            confirmButtonText: 'Entendido',
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                document.getElementById('saveUser').style.display = 'block';
+                document.getElementById('updateDivUser').style.display = 'none';
+                clearInputs();
+                getUsers();
+
+            } else if (result.isDenied) {
+
+                document.getElementById('saveUser').style.display = 'block';
+                document.getElementById('updateDivUser').style.display = 'none';
+                clearInputs();
+                getUsers();
+            }
+        });
+    }
 
 }
 
@@ -377,6 +442,21 @@ document.addEventListener("keyup", e => {
         })
     }
 });
+
+
+function clearInputs() {
+    document.getElementById('codigoEmpleado').value = '';
+    document.getElementById('usuario').value = '';
+    document.getElementById('nombre').value = '';
+    document.getElementById('apellido').value = '';
+    document.getElementById('departamentos').value = 1;
+    document.getElementById('status').value = 1;
+    document.getElementById('password').value = '';
+    document.getElementById('buscador').value = '';
+    document.getElementById('usuario').readOnly = false;
+    document.getElementById('password').readOnly = false;
+    document.getElementById('deptoActual').style.display = 'none';
+}
 
 getDepartments();
 getUsers();
