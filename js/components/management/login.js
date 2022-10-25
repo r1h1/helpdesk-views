@@ -43,6 +43,7 @@ function validateData() {
         const exitoso = (result) => {
 
             const code = result[0].Code;
+            const UsuarioID = result[0].UsuarioID;
             const usuario = result[0].Usuario;
             const rol = result[0].Rol;
             const message = result[0].Message;
@@ -55,6 +56,7 @@ function validateData() {
                 if (rol == null || rol == 'N/A') {
                     sessionStorage.removeItem('tokenAuth');
                     sessionStorage.removeItem('user');
+                    sessionStorage.removeItem('userid');
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
@@ -65,6 +67,7 @@ function validateData() {
                 else if (rol == 'Administrador') {
                     const data = rol; //rol
                     
+                    sessionStorage.userid = UsuarioID;
                     sessionStorage.tokenAuth = data;
                     sessionStorage.user = usuario;
                     window.location.href = 'support/management/dashboard.html';
@@ -72,6 +75,7 @@ function validateData() {
                 else if (rol == 'User') {
                     const data = rol;
 
+                    sessionStorage.userid = UsuarioID;
                     sessionStorage.tokenAuth = data;
                     sessionStorage.user = usuario;
                     window.location.href = 'support/user/home.html';
@@ -80,6 +84,7 @@ function validateData() {
                 else {
                     sessionStorage.removeItem('tokenAuth');
                     sessionStorage.removeItem('user');
+                    sessionStorage.removeItem('userid');
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
