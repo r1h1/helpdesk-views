@@ -25,13 +25,17 @@ function permissionAuthLogin() {
         sessionStorage.removeItem('user');
         window.location.href = '../../index.html';
     }
+
+    document.getElementById('deptoActual').style.display = 'none';
+    document.getElementById('saveUser').style.display = 'block';
+    document.getElementById('updateDivUser').style.display = 'none';
 }
 
 function closeSession() {
 
     sessionStorage.removeItem('userid');
-        sessionStorage.removeItem('tokenAuth');
-        sessionStorage.removeItem('user');
+    sessionStorage.removeItem('tokenAuth');
+    sessionStorage.removeItem('user');
     window.location.href = '../../index.html';
 }
 
