@@ -1,451 +1,361 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="New Ticket, Help desk solution for Analisis de Sistemas II, UMG, 2022"
-    />
-    <meta
-      name="keywords"
-      content="HTML5, CSS3, Bootstrap 5, JavaScript, Help Desk, Support"
-    />
-    <meta name="author" content="ACDL" />
-    <meta name="copyright" content="ACDL Assoc" />
-    <meta name="robots" content="index" />
 
-    <!-- Bootstrap CSS -->
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="New Ticket, Help desk solution for Analisis de Sistemas II, UMG, 2022" />
+  <meta name="keywords" content="HTML5, CSS3, Bootstrap 5, JavaScript, Help Desk, Support" />
+  <meta name="author" content="ACDL" />
+  <meta name="copyright" content="ACDL Assoc" />
+  <meta name="robots" content="index" />
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
+  <!-- Bootstrap CSS -->
 
-    <!-- Global links and CSS -->
-    <link rel="icon" href="../../img/support-logo.png" />
-    <link rel="stylesheet" href="../../css/typography.css" />
-    <link rel="stylesheet" href="../../css/colors.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
-    <!-- Local CSS -->
-    <link rel="stylesheet" href="../../css/specific/new-ticket.css" />
-    <!-- Local CSS -->
-    <link rel="stylesheet" href="../../css/specific/index.css" />
+  <!-- Global links and CSS -->
+  <link rel="icon" href="../../img/support-logo.png" />
+  <link rel="stylesheet" href="../../css/typography.css" />
+  <link rel="stylesheet" href="../../css/colors.css" />
 
-    <!-- Font Awesome Icons -->
-    <script
-      src="https://kit.fontawesome.com/be221c52b4.js"
-      crossorigin="anonymous"
-    ></script>
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="../../css/specific/new-ticket.css" />
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="../../css/specific/index.css" />
 
-    <title>Nuevo Ticket | Help Desk</title>
-  </head>
+  <!-- Sweet Alert Pop Up -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.all.js"
+  integrity="sha512-L0pIRrYrKsfCidtpWhWSrrbyAcSfrvMaezfwnNGns7c7MuToIEZRabX+WmZ6+Dzn8ESNsHz7t/k6vF8aM1fVXg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <body>
-    <header>
-      <!-- NavBar -->
-      <nav class="navbar navbar-light white-font-color">
-        <div class="container-sm">
-          <a class="navbar-brand" name="imagen-logo">
-            <img
-              src="../../img/support-logo.png"
-              alt="logo-img"
-              width="70"
-              height="70"
-              class="d-inline-block align-text-top"
-            />
-          </a>
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/be221c52b4.js" crossorigin="anonymous"></script>
+
+  <title>Nuevo Ticket | Help Desk</title>
+</head>
+
+<body>
+  <header>
+    <!-- NavBar -->
+    <nav class="navbar navbar-light white-font-color">
+      <div class="container-sm">
+        <a class="navbar-brand" name="imagen-logo">
+          <img src="../../img/support-logo.png" alt="logo-img" width="70" height="70"
+            class="d-inline-block align-text-top" />
+        </a>
+      </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light white-font-color border border-1">
+      <div class="container-sm">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active p-2" aria-current="page" href="home.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active p-2" aria-current="page" href="new-ticket.html">Nuevo Ticket</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active p-2" href="status-ticket.html">Tus Tickets</a>
+            </li>
+            <li class="nav-item">
+              <a class="p-2 href white-text-color btn red-font-color" onclick="closeSession()">Cerrar Sesión</a>
+            </li>
+          </ul>
         </div>
-      </nav>
-      <nav
-        class="navbar navbar-expand-lg navbar-light white-font-color border border-1"
-      >
-        <div class="container-sm">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a
-                  class="nav-link active p-2"
-                  aria-current="page"
-                  href="home.html"
-                  >Inicio</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link active p-2"
-                  aria-current="page"
-                  href="new-ticket.html"
-                  >Nuevo Ticket</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active p-2" href="status-ticket.html"
-                  >Tus Tickets</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="p-2 href white-text-color btn red-font-color"
-                  href="../../index.html"
-                  >Cerrar Sesión</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <!-- End NavBar -->
+      </div>
+    </nav>
+  </header>
+  <!-- End NavBar -->
 
-    <!-- Start main site content -->
-    <div class="main-container">
-      <main class="m-4 main-site">
-        <div class="principal-container">
-          <div class="row transparent">
-            <div class="col-md-5 instructions-card">
-              <div class="main-card transparent">
-                <div class="card-body">
-                  <div class="principal-title-new">
-                    <h2 class="fw-bold h1 p-2">Crea un ticket de soporte.</h2>
-                  </div>
-                  <div class="principal-instructions p-4 text-justify">
-                    <ol>
-                      <li>A tu lado derecho puedes encontrar un formulario.</li>
-                      <li>
-                        Llena los campos que se te solicitan
-                        <span class="text-decoration-underline"
-                          >(Los obligatorios tienen un *).</span
-                        >
-                      </li>
-                      <li>
-                        Ingresa una descripción de tu problema detallada y
-                        concreta.
-                      </li>
-                      <li>
-                        En el apartado URL, puedes colocar un link o URL de un
-                        video, imagen o archivo referente a tu error.
-                      </li>
-                      <li>
-                        Presiona el botón guardar, y conserva el número de tu
-                        ticket para consultar el estado del mismo.
-                      </li>
-                    </ol>
-                  </div>
+  <!-- Start main site content -->
+  <div class="main-container">
+    <main class="m-4 main-site">
+      <div class="principal-container">
+        <div class="row transparent">
+          <div class="col-md-5 instructions-card">
+            <div class="main-card transparent">
+              <div class="card-body">
+                <div class="principal-title-new">
+                  <h2 class="fw-bold h1 p-2">Crea un ticket de soporte.</h2>
                 </div>
-              </div>
-            </div>
-            <div class="col-md-7 stretch-card transparent">
-              <div class="card main-card">
-                <div class="card-body">
-                  <div class="principal-title-new mb-5">
-                    <h2 class="fw-bold">
-                      Nuevo Ticket
-                      <span class="h4 fw-bold blue-text-color">+</span>
-                    </h2>
-                    <p>
-                      Todos los campos con el símbolo
-                      <span class="red-text-color fw-bold h5">*</span> son
-                      obligatorios.
-                    </p>
-                  </div>
-
-                  <hr class="gray-font-color mt-1" />
-
-                  <div class="issue-div">
-                    <form class="issue-form m-4 row" action="" method="">
-                      <div class="col-sm-12 col-md-12 col-lg-12 mb-3 mt-2">
-                        <label for="" class="form-label"
-                          >Nombre Completo *</label
-                        >
-                        <div class="input-group">
-                          <span class="input-group-text"
-                            ><i class="fa-solid fa-user"></i
-                          ></span>
-                          <input
-                            type="text"
-                            class="form-control"
-                            name="nombreCompleto"
-                            placeholder="John McCarty"
-                            required
-                            maxlength="100"
-                          />
-                        </div>
-                      </div>
-
-                      <div class="col-sm-12 col-md-12 col-lg-6 mb-3 mt-2">
-                        <label for="" class="form-label">Teléfono *</label>
-                        <div class="input-group">
-                          <span class="input-group-text"
-                            ><i class="fa-solid fa-phone"></i
-                          ></span>
-                          <input
-                            type="number"
-                            class="form-control"
-                            name="telefono"
-                            placeholder="50236485"
-                            min="0"
-                            maxlength="8"
-                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                            required
-                          />
-                        </div>
-                      </div>
-
-                      <div class="col-sm-12 col-md-12 col-lg-6 mb-3 mt-2">
-                        <label for="" class="form-label">E Mail *</label>
-                        <div class="input-group">
-                          <span class="input-group-text"
-                            ><i class="fa-solid fa-at"></i
-                          ></span>
-                          <input
-                            type="email"
-                            class="form-control"
-                            name="email"
-                            placeholder="example@acdl.com"
-                            maxlength="50"
-                            required
-                          />
-                        </div>
-                      </div>
-
-                      <div class="col-sm-12 col-md-12 col-lg-6 mb-3 mt-2">
-                        <label for="" class="form-label">Ubicación *</label>
-                        <div class="input-group">
-                          <span class="input-group-text"
-                            ><i class="fa-solid fa-location-crosshairs"></i
-                          ></span>
-                          <select
-                            class="form-select"
-                            name="ubicacionFisica"
-                            required
-                          >
-                            <option value="1">Oficina</option>
-                            <option value="2">Home Office</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="col-sm-12 col-md-12 col-lg-6 mb-3 mt-2">
-                        <label for="" class="form-label"
-                          >Ubicación de Red
-                          <i
-                            class="fa-solid fa-circle-info blue-text-color"
-                            data-bs-toggle="tooltip"
-                            data-bs-placement="top"
-                            title="En este campo puedes llenar el IP que te requieran (Sólo para Home Office)"
-                          ></i
-                        ></label>
-                        <div class="input-group">
-                          <span class="input-group-text"
-                            ><i class="fa-solid fa-wifi"></i
-                          ></span>
-                          <input
-                            type="text"
-                            class="form-control"
-                            name="ubicacionRed"
-                            placeholder="192.168.0.1"
-                            maxlength="25"
-                          />
-                        </div>
-                      </div>
-
-                      <div class="col-sm-12 col-md-12 col-lg-12 mb-3 mt-4">
-                        <label for="" class="form-label">Asunto *</label>
-                        <div class="input-group">
-                          <span class="input-group-text">
-                            <i class="fa-solid fa-pen"></i>
-                          </span>
-                          <input
-                            type="text"
-                            class="form-control"
-                            name="asunto"
-                            placeholder="La computadora no tiene internet"
-                            maxlength="100"
-                            required
-                          />
-                        </div>
-                      </div>
-
-                      <div class="col-sm-12 col-md-12 col-lg-6 mb-3 mt-2">
-                        <label for="" class="form-label">Departamento *</label>
-                        <div class="input-group">
-                          <span class="input-group-text">
-                            <i class="fa-solid fa-building-user"></i>
-                          </span>
-                          <select
-                            class="form-select"
-                            name="departamento"
-                            required
-                          >
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="col-sm-12 col-md-12 col-lg-6 mb-3 mt-2">
-                        <label for="" class="form-label">Prioridad *</label>
-                        <div class="input-group">
-                          <span class="input-group-text">
-                            <i class="fa-solid fa-align-justify"></i>
-                          </span>
-                          <select class="form-select" name="prioridad" required>
-                            <option value="1">Baja</option>
-                            <option value="2">Media</option>
-                            <option value="3">Alta</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="col-sm-12 col-md-12 col-lg-12 mb-3 mt-2">
-                        <label for="" class="form-label"
-                          >Tipo de Solicitud *</label
-                        >
-                        <div class="input-group">
-                          <span class="input-group-text">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                          </span>
-                          <select
-                            class="form-select"
-                            name="tipoSolicitud"
-                            required
-                          >
-                            <option value="internet">WiFi / Internet</option>
-                            <option value="configuracion">
-                              Configuración General
-                            </option>
-                            <option value="software">Software</option>
-                            <option value="hardware">Hardware</option>
-                            <option value="otro">Otro (Especifique)</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="col-md-12 mb-3 mt-2">
-                        <textarea
-                          class="form-control"
-                          name="descripcion"
-                          rows="9"
-                          placeholder="Puedes incluir una breve descripción de tu problema para ayudar al equipo."
-                          minlength="0"
-                          maxlength="255"
-                          required
-                        ></textarea>
-                      </div>
-
-                      <div class="col-md-12 mb-3 mt-2">
-                        <label for="" class="form-label"
-                          >Adjutos / Evidencia
-                          <i
-                            class="fa-solid fa-circle-info blue-text-color"
-                            data-bs-toggle="tooltip"
-                            data-bs-placement="top"
-                            title="En este campo puedes agregar un link de algún archivo para apoyar a resolver tu problema."
-                          ></i
-                        ></label>
-                        <div class="input-group">
-                          <span class="input-group-text">
-                            <i class="fa-solid fa-file-arrow-up"></i>
-                          </span>
-                          <input
-                            type="text"
-                            class="form-control"
-                            name="linkAdjuntos"
-                            placeholder="Url de Adjuntos (Drive, Etc)"
-                            maxlength="100"
-                          />
-                        </div>
-                      </div>
-
-                      <hr class="gray-font-color mt-4" />
-
-                      <div class="col-md-12 col-sm-12 mb-3 mt-3">
-                        <button
-                          type="submit"
-                          class="btn green-font-color white-text-color mt-2 mb-2 m-2"
-                          id="submit-ticket"
-                        >
-                          <i class="fa-solid fa-floppy-disk"></i
-                          ><span class="p-2">Guardar</span>
-                        </button>
-                        <a
-                          href="index.html"
-                          class="btn red-font-color white-text-color mt-2 mb-2 m-2"
-                          ><i class="fa-solid fa-xmark"></i
-                          ><span class="p-2">Cancelar</span></a
-                        >
-                      </div>
-                    </form>
-                  </div>
+                <div class="principal-instructions p-4 text-justify">
+                  <ol>
+                    <li>A tu lado derecho puedes encontrar un formulario.</li>
+                    <li>
+                      Llena los campos que se te solicitan
+                      <span class="text-decoration-underline">(Los obligatorios tienen un *).</span>
+                    </li>
+                    <li>
+                      Ingresa una descripción de tu problema detallada y
+                      concreta.
+                    </li>
+                    <li>
+                      En el apartado URL, puedes colocar un link o URL de un
+                      video, imagen o archivo referente a tu error.
+                    </li>
+                    <li>
+                      Presiona el botón guardar, y conserva el número de tu
+                      ticket para consultar el estado del mismo.
+                    </li>
+                  </ol>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </main>
-      <!-- End main site content -->
-    </div>
-    <!-- End main container -->
+          <div class="col-md-7 stretch-card transparent">
+            <div class="card main-card">
+              <div class="card-body">
+                <div class="principal-title-new mb-5">
+                  <h2 class="fw-bold">
+                    Nuevo Ticket
+                    <span class="h4 fw-bold blue-text-color">+</span>
+                  </h2>
+                  <p>
+                    Todos los campos con el símbolo
+                    <span class="red-text-color fw-bold h5">*</span> son
+                    obligatorios.
+                  </p>
+                </div>
 
-    <!-- Start Top Footer -->
-    <footer class="top-footer border border-1">
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-4">
-            <a href="new-ticket.html">Nuevo Ticket</a>
-          </div>
-          <div class="col-lg-4">
-            <a href="status-ticket.html">Revisar Ticket</a>
-          </div>
-          <div class="col-lg-4">
-            <a href="tel:45024366">Llamar</a>
+                <hr class="gray-font-color mt-1" />
+
+                <div class="issue-div">
+                  <form class="issue-form m-4 row">
+                    <div class="col-sm-12 col-md-12 col-lg-12 mb-3 mt-2">
+                      <label for="" class="form-label">Nombre Completo *</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                        <input type="text" class="form-control" id="nombreCompleto" placeholder="John McCarty" required
+                          maxlength="100" />
+                        <div class="invalid-feedback">
+                          Llena este campo para continuar.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-6 mb-3 mt-2">
+                      <label for="" class="form-label">Teléfono *</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+                        <input type="number" class="form-control" id="telefono" placeholder="50236485" min="0"
+                          maxlength="8"
+                          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                          required />
+                        <div class="invalid-feedback">
+                          Llena este campo para continuar.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-6 mb-3 mt-2">
+                      <label for="" class="form-label">E Mail *</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-at"></i></span>
+                        <input type="email" class="form-control" id="email" placeholder="example@acdl.com"
+                          maxlength="50" required />
+                        <div class="invalid-feedback">
+                          Llena este campo para continuar.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-6 mb-3 mt-2">
+                      <label for="" class="form-label">Ubicación *</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-location-crosshairs"></i></span>
+                        <select class="form-select" name="ubicacionFisica" id="ubicaciones" required>
+                        </select>
+                        <div class="invalid-feedback">
+                          Llena este campo para continuar.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-6 mb-3 mt-2">
+                      <label for="" class="form-label">Ubicación de Red
+                        <i class="fa-solid fa-circle-info blue-text-color" data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          title="En este campo puedes llenar el IP que te requieran (Sólo para Home Office)"></i></label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-wifi"></i></span>
+                        <input type="text" class="form-control" id="ubicacionRed" placeholder="192.168.0.1"
+                          maxlength="25" />
+                        <div class="invalid-feedback">
+                          Llena este campo para continuar.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-12 mb-3 mt-2">
+                      <label for="" class="form-label">Asunto *</label>
+                      <div class="input-group">
+                        <span class="input-group-text">
+                          <i class="fa-solid fa-pen"></i>
+                        </span>
+                        <input type="text" class="form-control" id="asunto"
+                          placeholder="La computadora no tiene internet" maxlength="100" required />
+                        <div class="invalid-feedback">
+                          Llena este campo para continuar.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-6 mb-3 mt-2">
+                      <label for="" class="form-label">Departamento *</label>
+                      <div class="input-group">
+                        <span class="input-group-text">
+                          <i class="fa-solid fa-building-user"></i>
+                        </span>
+                        <select class="form-select text-uppercase" name="departamento" id="departamentos" required>
+                        </select>
+                        <div class="invalid-feedback">
+                          Llena este campo para continuar.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-6 mb-3 mt-2">
+                      <label for="" class="form-label">Prioridad *</label>
+                      <div class="input-group">
+                        <span class="input-group-text">
+                          <i class="fa-solid fa-align-justify"></i>
+                        </span>
+                        <select class="form-select text-uppercase" name="prioridad" id="prioridades" required>
+                        </select>
+                        <div class="invalid-feedback">
+                          Llena este campo para continuar.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-12 mb-3 mt-2">
+                      <label for="" class="form-label">Tipo de Solicitud *</label>
+                      <div class="input-group">
+                        <span class="input-group-text">
+                          <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                        <select class="form-select" name="tipoSolicitud" id="categorias" required>
+                        </select>
+                        <div class="invalid-feedback">
+                          Llena este campo para continuar.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-12 mb-3 mt-2">
+                      <label for="" class="form-label">Tipo de Ticket *</label>
+                      <div class="input-group">
+                        <span class="input-group-text">
+                          <i class="fa-solid fa-pen"></i>
+                        </span>
+                        <select class="form-select text-uppercase" name="tipo" id="tipoDeTicket" required>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12 mb-3 mt-2">
+                      <textarea class="form-control" id="descripcion" rows="9"
+                        placeholder="Puedes incluir una breve descripción de tu problema para ayudar al equipo."
+                        minlength="0" maxlength="255" required onchange="saveTicketButtonDisplay()"></textarea>
+                      <div class="invalid-feedback">
+                        Llena este campo para continuar.
+                      </div>
+                    </div>
+
+                    <div class="col-md-12 mb-3 mt-2">
+                      <label for="" class="form-label">Adjutos / Evidencia
+                        <i class="fa-solid fa-circle-info blue-text-color" data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          title="En este campo puedes agregar un link de algún archivo para apoyar a resolver tu problema."></i></label>
+                      <div class="input-group">
+                        <span class="input-group-text">
+                          <i class="fa-solid fa-file-arrow-up"></i>
+                        </span>
+                        <input type="text" class="form-control" id="link" placeholder="Url de Adjuntos (Drive, Etc)"
+                          maxlength="100" />
+                        <div class="invalid-feedback">
+                          Llena este campo para continuar.
+                        </div>
+                      </div>
+                    </div>
+
+                    <hr class="gray-font-color mt-4" />
+
+                    <div class="col-md-12 col-sm-12 mb-3 mt-3">
+
+                      <button type="submit" class="btn green-font-color white-text-color mt-2 mb-2 w-100" id="submitValidacion"
+                        ><i class="fa-solid fa-floppy-disk"></i><span class="p-2">Generar Ticket</span>
+                      </button>
+
+                      <a class="btn green-font-color white-text-color mt-2 mb-2 w-100" id="guardarTicket"
+                        onclick="createTicket()"><i class="fa-solid fa-floppy-disk"></i><span class="p-2">Generar Ticket</span>
+                      </a>
+
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </footer>
-    <!-- End Top Footer -->
+    </main>
+    <!-- End main site content -->
+  </div>
+  <!-- End main container -->
 
-    <!-- Start Bottom Footer -->
-    <div class="bottom-footer text-center white-font-color">
-      <p class="mt-2">
-        Software Help Desk de ACDL Support, &copy; Analisis de Sistemas II, UMG
-        2022
-      </p>
+  <!-- Start Top Footer -->
+  <footer class="top-footer border border-1">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-lg-4">
+          <a href="new-ticket.html">Nuevo Ticket</a>
+        </div>
+        <div class="col-lg-4">
+          <a href="status-ticket.html">Revisar Ticket</a>
+        </div>
+        <div class="col-lg-4">
+          <a href="tel:45024366">Llamar</a>
+        </div>
+      </div>
     </div>
-    <!-- End Bottom Footer -->
+  </footer>
+  <!-- End Top Footer -->
 
-    <!-- Bootstrap Bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-    <script src="../../js/components/user/new-ticket.js"></script>
-    <script>
-      var tooltipTriggerList = [].slice.call(
-        document.querySelectorAll('[data-bs-toggle="tooltip"]')
-      );
-      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl);
-      });
+  <!-- Start Bottom Footer -->
+  <div class="bottom-footer text-center white-font-color">
+    <p class="mt-2">
+      Software Help Desk de ACDL Support, &copy; Analisis de Sistemas II, UMG
+      2022
+    </p>
+  </div>
+  <!-- End Bottom Footer -->
 
-      permissionAuthLogin();
-    </script>
-  </body>
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="../../js/components/user/new-ticket.js"></script>
+  <script>
+
+    permissionAuthLogin();
+
+    var tooltipTriggerList = [].slice.call(
+      document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    );
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+
+  </script>
+</body>
+
 </html>

@@ -24,6 +24,11 @@
   <!-- Local CSS -->
   <link rel="stylesheet" href="../../css/specific/status-ticket.css" />
 
+  <!-- Sweet Alert Pop Up -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.all.js"
+    integrity="sha512-L0pIRrYrKsfCidtpWhWSrrbyAcSfrvMaezfwnNGns7c7MuToIEZRabX+WmZ6+Dzn8ESNsHz7t/k6vF8aM1fVXg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/be221c52b4.js" crossorigin="anonymous"></script>
 
@@ -102,55 +107,8 @@
 
               <hr class="gray-font-color mt-2" />
 
-              <div class="tickets mb-2 mt-4">
-                <div class="card">
-                  <div class="card-header green-font-color fw-bold">#5286</div>
-                  <div class="card-body">
-                    <a href="ticket-info.html?5286" class="fw-bold">Mi office no tiene licencia y no puedo hacer nada
-                    </a>
-                    <p>
-                      Creado en Jue, 4 Ago at 4:02 P. M. Agente: Daniel Rivas
-                    </p>
-                    <p>
-                      Status:
-                      <span class="fw-bold text-decoration-underline">Abierto</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="tickets mb-2 mt-4">
-                <div class="card">
-                  <div class="card-header blue-font-color fw-bold">#5286</div>
-                  <div class="card-body">
-                    <a href="ticket-info.html?5286" class="fw-bold">Mi computadora no tiene los puertos USB habilitados
-                    </a>
-                    <p>
-                      Creado en Jue, 4 Ago at 4:02 P. M. Agente: Daniel Rivas
-                    </p>
-                    <p>
-                      Status:
-                      <span class="fw-bold text-decoration-underline">En Proceso</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="tickets mb-2 mt-4">
-                <div class="card">
-                  <div class="card-header gray-font-color fw-bold">#5286</div>
-                  <div class="card-body">
-                    <a href="ticket-info.html?5286" class="fw-bold">Mi computadora no tiene sonido
-                    </a>
-                    <p>
-                      Creado en Jue, 4 Ago at 4:02 P. M. Agente: Daniel Rivas
-                    </p>
-                    <p>
-                      Status:
-                      <span class="fw-bold text-decoration-underline">Cerrado</span>
-                    </p>
-                  </div>
-                </div>
+              <div id="tickets-por-usuario">
+                
               </div>
 
             </div>

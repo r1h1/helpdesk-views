@@ -83,7 +83,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="solve-groups.html">
                             <i class="fa-solid fa-users" style="margin-right: 10px;"></i>
-                            <span class="menu-title">Grupos de Trabajo</span>
+                            <span class="menu-title">Pool de Tickets</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -126,9 +126,9 @@
                         <div class="col-md-12 grid-margin">
                             <div class="row">
                                 <div class="col-12 col-xl-8 mb-xl-0 mt-3">
-                                    <h3 class="font-weight-bold">Grupos de Trabajo</h3>
-                                    <h6 class="font-weight-normal mb-0">Puedes crear, editar, eliminar y ver grupos
-                                        para solucionar las incidencias de los usuarios.</span></h6>
+                                    <h3 class="font-weight-bold">Pool de Tickets</h3>
+                                    <h6 class="font-weight-normal mb-0">Puedes asignarte tus tickets para trabajar en
+                                        las soluciones finales.</span></h6>
                                 </div>
                                 <div class="row principal-options mt-4">
                                     <div class="col">
@@ -144,117 +144,13 @@
 
                     <div class="row modules">
 
-                        <div class="col-md-12 col-lg-6 stretch-card transparent mt-4">
+                        <div class="col-md-12 col-lg-12 stretch-card transparent mt-4">
                             <div class="card white-font-color">
                                 <div class="card-body w-100">
-                                    <p class="fw-bold">Nuevo Grupo</p>
-
-                                    <form class="issue-form m-4 row" action="" method="">
-
-                                        <div class="col-md-12 mb-3 mt-2">
-                                            <label for="" class="form-label">Tipo de Incidencia *</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text">
-                                                    <i class="fa-solid fa-magnifying-glass"></i>
-                                                </span>
-                                                <select class="form-select" name="tipoIncidencia" required>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="col-md-12 mb-3 mt-2">
-                                            <label for="" class="form-label">Nombre del Grupo *</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text">
-                                                    <i class="fa-solid fa-user-group"></i>
-                                                </span>
-                                                <input type="text" class="form-control " name="nombreGrupo"
-                                                    placeholder="The Wifi Masters" required />
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-12 mb-3 mt-2">
-                                            <label for="" class="form-label">Nombre del Empleado *</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text">
-                                                    <i class="fa-solid fa-user"></i>
-                                                </span>
-                                                <input type="text" class="form-control" placeholder="John"
-                                                    aria-label="Nombre del Empleado" name="nombreDelEmpleado"
-                                                    id="nombreEmpleado" onchange="validarAgregarEmpleadoAlGrupo()
-                                                    " required>
-                                            </div>
-                                            <p id="empleadoMensaje"></p>
-
-                                            <a class="btn blue-font-color mt-2" id="agregarEmpleadoAGrupo"
-                                                onclick="validarAgregarEmpleadoAlGrupo()" data-as-toggle="tooltip"
-                                                data-as-placement="top"
-                                                title="Puedes agregar empleados a un grupo de soporte">
-                                                + Añadir Empleado
-                                            </a>
-
-                                            <div class="table-responsive mt-4">
-                                                <table class="table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">Nombre</th>
-                                                            <th scope="col">Incidencia</th>
-                                                            <th scope="col">Empleados</th>
-                                                            <th scope="col"></th>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>Mimosos</td>
-                                                            <td>Hardware</td>
-                                                            <td>David, Pedro, Juan</td>
-                                                            <td><a href="#" class="btn red-font-color"><i
-                                                                        class="fa-solid fa-trash"></i> Eliminar</a></td>
-                                                        </tr>
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="col-md-12 mb-3 mt-3">
-                                            <button type="submit"
-                                                class="btn green-font-color white-text-color mt-2 mb-2 href"
-                                                id="submitGroup"><i class="fa-solid fa-floppy-disk"></i><span
-                                                    class="p-2">Guardar</span>
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-lg-6 stretch-card transparent mt-4">
-                            <div class="card white-font-color">
-                                <div class="card-body w-100">
-                                    <p class="fw-bold">Grupos creados</p>
+                                    <p class="fw-bold">Tickets por Asignar</p>
 
                                     <div class="row g-3 mt-3">
-                                        <div class="col-md-6">
-                                            <label for="" class="form-label mt-3">Filtrar por</label>
-                                            <div class="input-group">
-                                                <select class="form-select form-select-sm mt-2"
-                                                    aria-label="Default select example" name="filtrarPor">
-                                                    <option value="">Seleccione...</option>
-                                                    <option value="1">Ascendente</option>
-                                                    <option value="2">Descendente</option>
-                                                    <option value="3">A-Z</option>
-                                                    <option value="4">Z-A</option>
-                                                </select>
-                                                <span class="input-group-text mt-2">
-                                                    <i class="fa-solid fa-filter"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <label for="" class="form-label mt-3">Buscar por</label>
                                             <div class="input-group">
                                                 <input type="text" class="form-control mt-2" placeholder=""
@@ -267,99 +163,92 @@
                                     </div>
 
                                     <div class="table-responsive mt-5">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">Nombre</th>
-                                                    <th scope="col">Incidencia</th>
-                                                    <th scope="col">Empleados</th>
-                                                    <th scope="col"></th>
-                                                    <th scope="col"></th>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Mimosos</td>
-                                                    <td>Hardware</td>
-                                                    <td><a href="#" class="btn pink-font-color" data-bs-toggle="modal"
-                                                            data-bs-target="#verEmpleadosPorGrupo"
-                                                            data-as-toggle="tooltip" data-as-placement="top"
-                                                            title="Puedes ver los empleados de un grupo de soporte"><i
-                                                                class="fa-solid fa-eye"></i> Ver</a></td>
-                                                    <td><a href="#" class="btn green-font-color"><i
-                                                                class="fa-solid fa-pen"></i> Editar</a></td>
-                                                    <td><a href="#" class="btn red-font-color"><i
-                                                                class="fa-solid fa-trash"></i> Eliminar</a></td>
-                                                </tr>
+                                        <div class="table-responsive mt-5">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Ticket #</th>
+                                                        <th scope="col">Usuario</th>
+                                                        <th scope="col">Incidencia</th>
+                                                        <th scope="col">Departamento</th>
+                                                        <th scope="col">Prioridad</th>
+                                                        <th scope="col">Estado</th>
+                                                        <th scope="col">Fecha de Creación</th>
+                                                        <th scope="col">Resolver Ticket, Asignar, Eliminar</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <a class="fw-bold pink-font-color p-2 h5">262001</a>
+                                                        </td>
 
-                                            </tbody>
-                                        </table>
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="verEmpleadosPorGrupo" tabindex="-1"
-                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Empleados en el
-                                                            Grupo</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <ul>
-                                                            <li>Daniel Rivas</li>
-                                                            <li>Luis Gomez</li>
-                                                            <li>Abner</li>
-                                                            <li>Christian Arriaza</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                        <td>Daniel Rivas</td>
+                                                        <td>Mi office no tiene licencia</td>
+                                                        <td>INFORMATICA</td>
+                                                        <td class="fw-bold">Alta</td>
+                                                        <td><span class="green-font-color white-text-color p-2 h4"
+                                                                data-as-toggle="tooltip" data-as-placement="top"
+                                                                title="Puedes seguir el status del ticket">Abierto</span>
+                                                        </td>
+                                                        <td>19/08/2022</td>
+                                                        <td>
+                                                            <a href="#" class="btn btn-primary"><i
+                                                                    class="fa-sharp fa-solid fa-user-plus fs-5"></i></a>
+                                                            <a href="#" class="btn btn-warning"><i
+                                                                    class="fa-sharp fa-solid fa-user-tie fs-5 black-text-color"></i></a>
+                                                            <a href="#" class="btn btn-danger"><i
+                                                                    class="fa-solid fa-trash fs-5"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- content-wrapper ends -->
+                    <!-- partial:partials/_footer.html -->
+                    <footer class="footer">
+                        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Software Help
+                                Desk
+                                de ACDL
+                                Support, © Analisis de Sistemas II, UMG 2022</span>
+                        </div>
+                    </footer>
+                    <!-- partial -->
                 </div>
-
-                <!-- content-wrapper ends -->
-                <!-- partial:partials/_footer.html -->
-                <footer class="footer">
-                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Software Help Desk
-                            de ACDL
-                            Support, © Analisis de Sistemas II, UMG 2022</span>
-                    </div>
-                </footer>
-                <!-- partial -->
+                <!-- main-panel ends -->
             </div>
-            <!-- main-panel ends -->
+            <!-- page-body-wrapper ends -->
         </div>
-        <!-- page-body-wrapper ends -->
-    </div>
-    <!-- container-scroller -->
+        <!-- container-scroller -->
 
-    <script src="../../js/dashboard/alerts.js"></script>
-    <script src="../../js/global.js"></script>
-    <script src="../../vendors/js/vendor.bundle.base.js"></script>
-    <script src="../../js/dashboard/off-canvas.js"></script>
-    <script src="../../js/dashboard/template.js"></script>
-    <script src="../../js/dashboard/dashboard.js"></script>
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <script src="../../js/components/management/solve-groups.js"></script>
-    <script>
-        var tooltipTriggerList = [].slice.call(
-            document.querySelectorAll('[data-as-toggle="tooltip"]')
-        );
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl);
-        });
+        <script src="../../js/dashboard/alerts.js"></script>
+        <script src="../../js/global.js"></script>
+        <script src="../../vendors/js/vendor.bundle.base.js"></script>
+        <script src="../../js/dashboard/off-canvas.js"></script>
+        <script src="../../js/dashboard/template.js"></script>
+        <script src="../../js/dashboard/dashboard.js"></script>
+        <!-- Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+        <script src="../../js/components/management/solve-groups.js"></script>
+        <script>
+            var tooltipTriggerList = [].slice.call(
+                document.querySelectorAll('[data-as-toggle="tooltip"]')
+            );
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
 
-        permissionAuthLogin();
-    </script>
+            permissionAuthLogin();
+        </script>
 </body>
 
 </html>
