@@ -65,7 +65,7 @@ function getDepartments() {
             </td>
             </tr>`
         }
-        document.getElementById('tabla-de-datos-body').innerHTML = body
+        document.getElementById('tabla-de-datos-body').innerHTML = body;
     }
 
 }

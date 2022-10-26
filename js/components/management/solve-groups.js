@@ -16,7 +16,7 @@ function permissionAuthLogin() {
         sessionStorage.removeItem('user');
         window.location.href = '../../index.html';
     }
-    else if (dataTokenFromSuccessLogin == 'Administrador') {
+    else if (dataTokenFromSuccessLogin == 'Administrador' || dataTokenFromSuccessLogin == 'Super Administrador') {
         console.log('sesionAprobada');
     }
     else {
@@ -33,4 +33,9 @@ function closeSession() {
         sessionStorage.removeItem('tokenAuth');
         sessionStorage.removeItem('user');
     window.location.href = '../../index.html';
+}
+
+
+function permissionButtons(){
+
 }

@@ -30,7 +30,7 @@ function permissionAuthLogin() {
 function closeSession() {
 
     sessionStorage.removeItem('userid');
-        sessionStorage.removeItem('tokenAuth');
-        sessionStorage.removeItem('user');
+    sessionStorage.removeItem('tokenAuth');
+    sessionStorage.removeItem('user');
     window.location.href = '../../index.html';
 }

@@ -64,9 +64,10 @@ function validateData() {
                     });
                 }
 
-                else if (rol == 'Administrador') {
-                    const data = rol; //rol
-                    
+                else if (rol == 'Administrador' || rol == 'Super Administrador' || rol == 'Test') {
+
+                    const data = rol;
+
                     sessionStorage.userid = UsuarioID;
                     sessionStorage.tokenAuth = data;
                     sessionStorage.user = usuario;
