@@ -33,7 +33,7 @@ function obtainTicketsPerUser() {
 
     var userFilter = sessionStorage.user;
 
-    var url = 'http://helpdeskwebservices.tk/TicketFiltroUsuario';
+    var url = 'https://helpdeskwebservices.tk/TicketFiltroUsuario';
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
