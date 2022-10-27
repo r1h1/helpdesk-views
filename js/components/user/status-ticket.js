@@ -75,24 +75,21 @@ function obtainTicketsPerUser() {
 
 
 
-            let coloresTicket = ["green-font-color", "blue-font-color", "gray-font-color"];
+            let coloresTicket = ["green-font-color", "blue-font-color", "gray-font-color", "bg-light"];
             let colorAsignadoTicket = '';
             let estadoTicket = result[i].EstadoTicket.toUpperCase();
 
-            if (estadoTicket == 'CREADO') {
+            if (estadoTicket == 'CREADO' || estadoTicket == 'ASIGNADO') {
                 colorAsignadoTicket = coloresTicket[0];
             }
-            else if (estadoTicket == 'ABIERTO') {
-                colorAsignadoTicket = coloresTicket[0];
-            }
-            else if (estadoTicket == 'EN PROCESO') {
+            else if (estadoTicket == 'EN EJECUCION' || estadoTicket == 'EN REVISION') {
                 colorAsignadoTicket = coloresTicket[1];
             }
-            else if (estadoTicket == 'CERRADO') {
+            else if (estadoTicket == 'FINALIZADO') {
                 colorAsignadoTicket = coloresTicket[2];
             }
             else {
-                colorAsignadoTicket = coloresTicket[2];
+                colorAsignadoTicket = coloresTicket[3];
             }
 
             body += `<div class="mb-2 mt-4">

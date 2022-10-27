@@ -64,7 +64,7 @@ function validateData() {
                     });
                 }
 
-                else if (rol == 'Administrador' || rol == 'Super Administrador' || rol == 'Test') {
+                else if (rol == 'Administrador' || rol == 'Super Administrador') {
 
                     const data = rol;
 
