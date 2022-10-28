@@ -45,6 +45,7 @@ function validateData() {
             const code = result[0].Code;
             const UsuarioID = result[0].UsuarioID;
             const usuario = result[0].Usuario;
+            const departamentoID = result[0].DepartamentoID;
             const rol = result[0].Rol;
             const message = result[0].Message;
 
@@ -57,6 +58,7 @@ function validateData() {
                     sessionStorage.removeItem('tokenAuth');
                     sessionStorage.removeItem('user');
                     sessionStorage.removeItem('userid');
+                    sessionStorage.removeItem('departamentoID');
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
@@ -71,6 +73,8 @@ function validateData() {
                     sessionStorage.userid = UsuarioID;
                     sessionStorage.tokenAuth = data;
                     sessionStorage.user = usuario;
+                    sessionStorage.departamentoID = departamentoID;
+
                     window.location.href = 'support/management/dashboard.html';
                 }
                 else if (rol == 'User') {
@@ -79,6 +83,8 @@ function validateData() {
                     sessionStorage.userid = UsuarioID;
                     sessionStorage.tokenAuth = data;
                     sessionStorage.user = usuario;
+                    sessionStorage.departamentoID = departamentoID;
+
                     window.location.href = 'support/user/home.html';
                 }
 
@@ -86,6 +92,7 @@ function validateData() {
                     sessionStorage.removeItem('tokenAuth');
                     sessionStorage.removeItem('user');
                     sessionStorage.removeItem('userid');
+                    sessionStorage.removeItem('departamentoID');
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
