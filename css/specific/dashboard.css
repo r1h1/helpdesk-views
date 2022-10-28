@@ -1,3 +1,7 @@
+.filtro{
+  display: none;
+}
+
 .modules a {
   text-decoration: none;
   color: #ffffff;

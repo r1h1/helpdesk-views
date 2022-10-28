@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="../../css/typography.css">
     <link rel="stylesheet" href="../../css/specific/new-ticket.css">
     <link rel="stylesheet" href="../../css/specific/users.css">
-    <link rel="stylesheet" href="../../css/specific/ticket-info.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="../../img/support-logo.png" />
     <link rel="stylesheet" href="../../css/colors.css">
@@ -139,16 +138,16 @@
                         <div class="col-md-12 grid-margin">
                             <div class="row">
                                 <div class="col-12 col-xl-8 mb-xl-0 mt-3">
-                                    <h3 class="font-weight-bold">Información sobre el ticket</h3>
-                                    <h6 class="font-weight-normal mb-0">Puedes solucionar el ticket desde esta
-                                        pantalla.</span></h6>
+                                    <h3 class="font-weight-bold">Marcas de Productos</h3>
+                                    <h6 class="font-weight-normal mb-0">Puedes crear, editar, eliminar y más.</span>
+                                    </h6>
                                 </div>
                                 <div class="row principal-options mt-4">
                                     <div class="col">
-                                        <a href="status-tickets.html"
+                                        <a href="dashboard.html"
                                             class="btn blue-font-color text-decoration-none white-text-color href">
                                             <span><i class="fa-solid fa-arrow-left white-text-color"></i></span>
-                                            Regresar</a>
+                                            Regresar a Dashboard</a>
                                     </div>
                                 </div>
                             </div>
@@ -156,113 +155,80 @@
                     </div>
 
                     <div class="row modules">
-                        <div class="col-md-6 stretch-card transparent mt-4">
-                            <div id="ticket-info-por-id">
-
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 stretch-card transparent mt-4">
+                        <div class="col-md-12 col-lg-6 stretch-card transparent mt-4">
                             <div class="card white-font-color">
                                 <div class="card-body w-100">
-                                    <p class="fw-bold">Resolucion del Ticket</p>
-                                    <form class="issue-form m-4 row" action="" method="">
+                                    <p class="fw-bold">Nueva Marca</p>
+                                    <form class="issue-form m-4 row" action="" method="POST">
 
                                         <div class="col-md-12 mb-3 mt-2">
-
-                                            <label for="" class="form-label">Estado *</label>
                                             <div class="input-group">
-                                                <span class="input-group-text ">
-                                                    <i class="fa-solid fa-circle-question"></i>
+                                                <input type="text" class="form-control" id="idMarca" hidden>
+                                                <span class="input-group-text">
+                                                    <i class="fa-solid fa-building-user"></i>
                                                 </span>
-                                                <select class="form-select " name="estadoTicket" required>
-                                                    <option value="1">CREADO</option>
-                                                    <option value="2">ASIGNADO</option>
-                                                    <option value="3">EN EJECUCION</option>
-                                                    <option value="4">EN REVISION</option>
-                                                    <option value="5">FINALIZADO</option>
-                                                </select>
+                                                <input type="text" class="form-control text-uppercase"
+                                                    name="marca" placeholder="Nombre de la marca *"
+                                                    id="nombreMarca" required />
                                             </div>
+
                                         </div>
 
                                         <div class="col-md-12 mb-3 mt-2">
-                                            <label for="" class="form-label">Comentario Final *</label>
-                                            <textarea class="form-control" name="descripcion" rows="9"
-                                                placeholder="Puedes incluir una breve descripción de tu problema para ayudar al Usuario."
-                                                minlength="0" maxlength="256" required></textarea>
-
-                                        </div>
-
-                                        <div class="col-md-12 mb-3 mt-2" id="recursosFacturables">
-
-                                            <label for="" class="form-label">Producto</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text ">
-                                                    <i class="fa-solid fa-list"></i>
-                                                </span>
-                                                <select id="productoid" class="form-select">
-                                                    
-                                                </select>
+                                            <div id="saveBrands">
+                                                <button type="button"
+                                                    class="btn green-font-color white-text-color mt-2 mb-2 href"
+                                                    onclick="createBrands()"><i
+                                                        class="fa-solid fa-floppy-disk"></i><span
+                                                        class="p-2">Guardar</span>
+                                                </button>
                                             </div>
-                                            <p id="nombreFacturableMensaje"></p>
-
-                                            <label for="" class="form-label mt-4">Cantidad</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text ">
-                                                    <i class="fa-solid fa-list-ol"></i>
-                                                </span>
-                                                <input type="number" class="form-control" min="1" max="99999999"
-                                                    placeholder="1" name="cantidadRecursoFacturable" id="cantidad">
-                                            </div>
-                                            <p id="cantidadMensaje" class="text-danger"></p>
-
-                                            <label for="" class="form-label mt-4">Precio (Q)</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text ">
-                                                    <i class="fa-solid fa-money-bill"></i>
-                                                </span>
-                                                <input type="number" class="form-control" min="1" max="99999999"
-                                                    placeholder="500.00" id="precio">
-                                            </div>
-                                            <p id="precioMensaje" class="text-danger"></p>
-
-                                            <a class="btn blue-font-color white-text-color mt-2 mb-2 href"
-                                                id="agregarFacturableBoton" onclick="addProdsTemp()">+ Añadir
-                                                Producto</a>
-
-                                        </div>
-
-                                        <div class="col-md-12 mb-3" id="tablaTempRecursosFacturables">
-                                            <div class="table-responsive mt-4">
-                                                <table class="table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">ID</th>
-                                                            <th scope="col">Producto</th>
-                                                            <th scope="col">Cantidad</th>
-                                                            <th scope="col">Precio</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody id="tabla-de-datos-body">
-                                                    </tbody>
-                                                </table>
+                                            <div id="updateBrands">
+                                                <button type="button"
+                                                    class="btn green-font-color white-text-color mt-2 mb-2 href"
+                                                    onclick="updateExistBrands()"><i
+                                                        class="fa-solid fa-floppy-disk"></i><span
+                                                        class="p-2">Actualizar</span>
+                                                </button>
                                             </div>
                                         </div>
-
-                                        <div class="col-md-12 mb-3 mt-3">
-                                            <button type="submit"
-                                                class="btn green-font-color white-text-color mt-2 mb-2 href"
-                                                id="submit-ticket"><i class="fa-solid fa-floppy-disk"></i><span
-                                                    class="p-2">Guardar</span>
-                                            </button>
-                                            <a class="btn blue-font-color white-text-color mt-2 mb-2 href"
-                                                onclick="habilitarRecursoFacturable()" id="botonRecursoFacturable"
-                                                data-as-toggle="tooltip" data-as-placement="top"
-                                                title="Puedes agregar recursos que requieran facturación empresarial como computadoras, etc.">
-                                            </a>
-                                        </div>
-
                                     </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-6 stretch-card transparent mt-4">
+                            <div class="card white-font-color">
+                                <div class="card-body w-100">
+
+                                    <p class="fw-bold">Marcas creados</p>
+
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label for="" class="form-label mt-3">Buscar Algo</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control mt-2" placeholder="Buscar..."
+                                                    aria-label="Buscar por" name="buscador" id="buscador">
+                                                <span class="input-group-text mt-2">
+                                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="table-responsive  mt-5" id="tabla-de-datos">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Descripcion</th>
+                                                    <th scope="col">Editar, Eliminar</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tabla-de-datos-body">
+
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -286,21 +252,7 @@
     </div>
     <!-- container-scroller -->
 
-    <script>
-        function deshabilitarRecursoFacturable() {
-
-            var divRecursoFacturable = document.getElementById("recursosFacturables");
-            var divTablaTempRecursosFacturables = document.getElementById("tablaTempRecursosFacturables");
-            var botonRecursoFacturable = document.getElementById("botonRecursoFacturable").innerHTML = '+ Añadir Recurso Facturable';
-
-            divRecursoFacturable.style.display = "none";
-            divTablaTempRecursosFacturables.style.display = "none";
-        }
-
-        deshabilitarRecursoFacturable();
-    </script>
     <script src="../../js/dashboard/alerts.js"></script>
-    <script src="../../js/global.js"></script>
     <script src="../../vendors/js/vendor.bundle.base.js"></script>
     <script src="../../js/dashboard/off-canvas.js"></script>
     <script src="../../js/dashboard/template.js"></script>
@@ -309,16 +261,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-    <script src="../../js/components/management/ticket-info.js"></script>
+    <script src="../../js/components/management/brands.js"></script>
     <script>
-        var tooltipTriggerList = [].slice.call(
-            document.querySelectorAll('[data-as-toggle="tooltip"]')
-        );
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl);
-        });
-
         permissionAuthLogin();
+        getBrands();
     </script>
 </body>
 

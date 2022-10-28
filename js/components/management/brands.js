@@ -3,15 +3,11 @@ function permissionAuthLogin() {
     var dataTokenFromSuccessLogin = sessionStorage.tokenAuth;
     var userLog = sessionStorage.user;
     var idUsuarioLogueado = sessionStorage.userid;
-    var departamentoid = sessionStorage.departamentoID;
 
     if (dataTokenFromSuccessLogin == '' || dataTokenFromSuccessLogin == null) {
-
         sessionStorage.removeItem('userid');
         sessionStorage.removeItem('tokenAuth');
         sessionStorage.removeItem('user');
-        sessionStorage.removeItem('departamentoID');
-
         window.location.href = '../../index.html';
     }
     else if (dataTokenFromSuccessLogin == 'Administrador' || dataTokenFromSuccessLogin == 'Super Administrador') {
@@ -21,7 +17,6 @@ function permissionAuthLogin() {
         sessionStorage.removeItem('userid');
         sessionStorage.removeItem('tokenAuth');
         sessionStorage.removeItem('user');
-        sessionStorage.removeItem('departamentoID');
         window.location.href = '../../index.html';
     }
 }
@@ -29,19 +24,17 @@ function permissionAuthLogin() {
 function closeSession() {
 
     sessionStorage.removeItem('userid');
-    sessionStorage.removeItem('tokenAuth');
-    sessionStorage.removeItem('user');
-    sessionStorage.removeItem('departamentoID');
-
+        sessionStorage.removeItem('tokenAuth');
+        sessionStorage.removeItem('user');
     window.location.href = '../../index.html';
 }
 
 
-function getDepartments() {
+function getBrands() {
 
-    document.getElementById('updateDepartment').style.display = 'none';
+    document.getElementById('updateBrands').style.display = 'none';
 
-    var url = 'https://helpdeskwebservices.tk/api/Departamentos/';
+    var url = 'https://helpdeskwebservices.tk/api/Marcas';
     fetch(url)
         .then(response => response.json())
         .then(data => mostrarData(data))
@@ -53,16 +46,16 @@ function getDepartments() {
         }));
 
     const mostrarData = (data) => {
-        let body = ''
+        let body = '';
         for (var i = 0; i < data.length; i++) {
             var j = 0;
-            body += `<tr class="departamento">
-            <td hidden>${data[i].DepartamentoID}</td>
+            body += `<tr class="marca">
+            <td hidden>${data[i].MarcaID}</td>
             <td>${j = i + 1}</td>
             <td class="text-uppercase">${data[i].Descripcion}</td>
             <td>
-                <a class="btn btn-warning text-dark fw-bold" onclick="editDepartment(${data[i].DepartamentoID}, '${data[i].Descripcion}');"><i class="fa-solid fa-pen-to-square"></i></a>
-                <a class="btn btn-danger text-white fw-bold" onclick="deleteDepartment(${data[i].DepartamentoID});"><i class="fa-solid fa-trash"></i></a>
+                <a class="btn btn-warning text-dark fw-bold" onclick="editBrands(${data[i].MarcaID}, '${data[i].Descripcion}');"><i class="fa-solid fa-pen-to-square"></i></a>
+                <a class="btn btn-danger text-white fw-bold" onclick="deleteBrands(${data[i].MarcaID});"><i class="fa-solid fa-trash"></i></a>
             </td>
             </tr>`
         }
@@ -72,17 +65,17 @@ function getDepartments() {
 }
 
 
-function createDepartments() {
+function createBrands() {
 
-    document.getElementById('saveDepartment').style.display = 'block';
+    document.getElementById('saveBrands').style.display = 'block';
 
-    var nombreDepartamento = document.getElementById('nombreDepartamento').value;
+    var nombreMarca = document.getElementById('nombreMarca').value;
 
-    if (nombreDepartamento == "" || nombreDepartamento == null) {
+    if (nombreMarca == "" || nombreMarca == null) {
         Swal.fire({
             icon: 'error',
             title: 'Oops',
-            text: 'Debe ingresar el nombre del departamento a crear.'
+            text: 'Debe ingresar el nombre de la marca a crear.'
         });
     }
     else {
@@ -90,7 +83,7 @@ function createDepartments() {
         myHeaders.append("Content-Type", "application/json");
 
         var raw = JSON.stringify({
-            "Descripcion": '' + nombreDepartamento + ''
+            "Descripcion": '' + nombreMarca + ''
         });
 
         var requestOptions = {
@@ -101,7 +94,7 @@ function createDepartments() {
         };
 
 
-        var url = 'https://helpdeskwebservices.tk/CrearDepartamento';
+        var url = 'https://helpdeskwebservices.tk/CrearMarca';
 
         fetch(url, requestOptions)
             .then(response => response.text())
@@ -109,7 +102,7 @@ function createDepartments() {
             .catch(error => Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Hubo un error al crear el departamento, código de error: ' + error,
+                text: 'Hubo un error al procesar la operación, código de error: ' + error,
                 confirmButtonText: 'Entendido',
             }));
 
@@ -122,11 +115,11 @@ function createDepartments() {
                 confirmButtonText: 'Entendido',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    document.getElementById('nombreDepartamento').value = '';
-                    getDepartments();
+                    document.getElementById('nombreMarca').value = '';
+                    getBrands();
                 } else if (result.isDenied) {
-                    document.getElementById('nombreDepartamento').value = '';
-                    getDepartments();
+                    document.getElementById('nombreMarca').value = '';
+                    getBrands();
                 }
             });
         }
@@ -136,9 +129,9 @@ function createDepartments() {
 }
 
 
-function deleteDepartment(id) {
+function deleteBrands(id) {
 
-    document.getElementById('saveDepartment').style.display = 'block';
+    document.getElementById('saveBrands').style.display = 'block';
 
     Swal.fire({
         icon: 'warning',
@@ -155,7 +148,7 @@ function deleteDepartment(id) {
             myHeaders.append("Content-Type", "application/json");
 
             var raw = JSON.stringify({
-                "DepartamentoID": '' + id + ''
+                "MarcaID": '' + id + ''
             });
 
             var requestOptions = {
@@ -166,7 +159,7 @@ function deleteDepartment(id) {
             };
 
 
-            var url = 'https://helpdeskwebservices.tk/EliminarDepartamento';
+            var url = 'https://helpdeskwebservices.tk/EliminarMarca';
 
             fetch(url, requestOptions)
                 .then(response => response.text())
@@ -174,7 +167,7 @@ function deleteDepartment(id) {
                 .catch(error => Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: 'Hubo un error al eliminar el departamento, código de error: ' + error,
+                    text: 'Hubo un error al eliminar el marca, código de error: ' + error,
                     confirmButtonText: 'Entendido',
                 }));
 
@@ -187,42 +180,42 @@ function deleteDepartment(id) {
                     confirmButtonText: 'Entendido',
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        getDepartments();
+                        getBrands();
                     } else if (result.isDenied) {
-                        getDepartments();
+                        getBrands();
                     }
                 });
             }
 
         } else if (result.isDenied) {
-            getDepartments();
+            getBrands();
         }
     });
 }
 
 
 
-function editDepartment(id, descripcion) {
+function editBrands(id, descripcion) {
 
-    document.getElementById('idDepartamento').value = id;
-    document.getElementById('nombreDepartamento').value = descripcion;
+    document.getElementById('idMarca').value = id;
+    document.getElementById('nombreMarca').value = descripcion;
 
-    document.getElementById('updateDepartment').style.display = 'block';
-    document.getElementById('saveDepartment').style.display = 'none';
+    document.getElementById('updateBrands').style.display = 'block';
+    document.getElementById('saveBrands').style.display = 'none';
 
 }
 
-function updateExistDepartment() {
+function updateExistBrands() {
 
-    var idDepartamento = document.getElementById('idDepartamento').value;
-    var nuevoNombreDepartamento = document.getElementById('nombreDepartamento').value;
+    var idMarca = document.getElementById('idMarca').value;
+    var nuevoNombreMarca = document.getElementById('nombreMarca').value;
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
-        "DepartamentoID": '' + idDepartamento + '',
-        "Descripcion": '' + nuevoNombreDepartamento + ''
+        "marcaID": '' + idMarca + '',
+        "Descripcion": '' + nuevoNombreMarca + ''
     });
 
     var requestOptions = {
@@ -233,7 +226,7 @@ function updateExistDepartment() {
     };
 
 
-    var url = 'https://helpdeskwebservices.tk/EditarDepartamento';
+    var url = 'https://helpdeskwebservices.tk/EditarMarca';
 
     fetch(url, requestOptions)
         .then(response => response.text())
@@ -255,17 +248,17 @@ function updateExistDepartment() {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                document.getElementById('updateDepartment').style.display = 'none';
-                document.getElementById('saveDepartment').style.display = 'block';
-                document.getElementById('nombreDepartamento').value = '';
-                getDepartments();
+                document.getElementById('updateBrands').style.display = 'none';
+                document.getElementById('saveBrands').style.display = 'block';
+                document.getElementById('nombreMarca').value = '';
+                getBrands();
                 
             } else if (result.isDenied) {
 
-                document.getElementById('updateDepartment').style.display = 'none';
-                document.getElementById('saveDepartment').style.display = 'block';
-                document.getElementById('nombreDepartamento').value = '';
-                getDepartments();
+                document.getElementById('updateBrands').style.display = 'none';
+                document.getElementById('saveBrands').style.display = 'block';
+                document.getElementById('nombreMarca').value = '';
+                getBrands();
             }
         });
     }
@@ -277,11 +270,11 @@ document.addEventListener("keyup", e => {
 
         if (e.key === "Escape") e.target.value = ""
 
-        document.querySelectorAll(".departamento").forEach(departamentoSelector => {
+        document.querySelectorAll(".marca").forEach(marcaSelector => {
 
-            departamentoSelector.textContent.toLowerCase().includes(e.target.value.toLowerCase())
-                ? departamentoSelector.classList.remove("filtro")
-                : departamentoSelector.classList.add("filtro")
+            marcaSelector.textContent.toLowerCase().includes(e.target.value.toLowerCase())
+                ? marcaSelector.classList.remove("filtro")
+                : marcaSelector.classList.add("filtro")
         })
 
     }

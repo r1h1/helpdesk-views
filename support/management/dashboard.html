@@ -85,19 +85,31 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="solve-groups.html">
-              <i class="fa-solid fa-users" style="margin-right: 10px;"></i>
-              <span class="menu-title">Pool de Tickets</span>
-            </a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="departments.html">
               <i class="fa-solid fa-building-user" style="margin-right: 11px;"></i>
               <span class="menu-title">Departamentos</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../user/new-ticket.html" target="_blank" onclick="newTicketOpen()">
+            <a class="nav-link" href="brands.html">
+              <i class="fa-solid fa-shop" style="margin-right: 11px;"></i>
+              <span class="menu-title">Marcas de Productos</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="products.html">
+              <i class="fa-solid fa-boxes-stacked" style="margin-right: 11px;"></i>
+              <span class="menu-title">Productos</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="solve-groups.html">
+              <i class="fa-solid fa-users" style="margin-right: 10px;"></i>
+              <span class="menu-title">Pool de Tickets</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../user/new-ticket.html">
               <i class="fa-solid fa-ticket" style="margin-right: 13px;"></i>
               <span class="menu-title">Crear un Ticket</span>
             </a>
@@ -105,7 +117,7 @@
           <li class="nav-item">
             <a class="nav-link" href="status-tickets.html">
               <i class="fa-solid fa-clipboard-check" style="margin-right: 18px;"></i>
-              <span class="menu-title">Status del Ticket</span>
+              <span class="menu-title">Tickets Asignados</span>
             </a>
           </li>
           <li class="nav-item">
@@ -146,8 +158,8 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 mb-4 transparent">
                   <div class="card blue-font-color white-text-color">
                     <div class="card-body">
-                      <p class="mb-4">Tickets Abiertos</p>
-                      <p class="h1 mb-3 fw-bold text-end">80</p>
+                      <p class="mb-4">Tickets Asignados</p>
+                      <p class="h1 mb-3 fw-bold text-end" id="ticketsAsignados"></p>
                     </div>
                   </div>
                 </div>
@@ -155,8 +167,8 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 mb-4 transparent">
                   <div class="card blue-font-color white-text-color">
                     <div class="card-body">
-                      <p class="mb-4">Tickets En Proceso</p>
-                      <p class="h1 mb-3 fw-bold text-end">1</p>
+                      <p class="mb-4">Tickets En Ejecución</p>
+                      <p class="h1 mb-3 fw-bold text-end" id="ticketsEnEjecucion"></p>
                     </div>
                   </div>
                 </div>
@@ -164,8 +176,8 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 mb-4 transparent">
                   <div class="card blue-font-color white-text-color">
                     <div class="card-body">
-                      <p class="mb-4">Tickets Cerrados</p>
-                      <p class="h1 mb-3 fw-bold text-end">19</p>
+                      <p class="mb-4">Tickets Finalizados</p>
+                      <p class="h1 mb-3 fw-bold text-end" id="ticketsFinalizados"></p>
                     </div>
                   </div>
                 </div>

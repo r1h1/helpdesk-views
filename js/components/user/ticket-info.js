@@ -111,6 +111,7 @@ function obtainTicketsPerIDTicket() {
 function sendKPISurvey() {
 
     var cantEstrellas = document.getElementById('estrellas').value;
+    var comentario = document.getElementById('comentario').value;
 
     const url2 = window.location.search;
     const ticketIdBuscar = new URLSearchParams(url2);
@@ -132,7 +133,8 @@ function sendKPISurvey() {
 
         var raw = JSON.stringify({
             "TicketId": idTicket,
-            "Puntuacion": cantEstrellas
+            "Puntuacion": cantEstrellas,
+            "ComentarioEncuesta": '' + comentario + ''
         });
 
         var requestOptions = {
