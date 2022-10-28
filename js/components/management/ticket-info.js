@@ -102,8 +102,68 @@ function obtainTicketsPerIDTicket() {
     }
 }
 
-function getStatus(){
+
+function getProducts() {
+
+    var url = 'https://helpdeskwebservices.tk/api/Productos';
+    fetch(url)
+        .then(response => response.json())
+        .then(data => mostrarData(data))
+        .catch(error => Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Hubo un error al obtener los datos, código de error: ' + error,
+            confirmButtonText: 'Entendido',
+        }));
+
+    const mostrarData = (data) => {
+
+        let body = '';
+
+        for (var i = 0; i < data.length; i++) {
+            body += `<option value="${data[i].ProductoID}">${data[i].Decripcion}</option>`;
+        }
+
+        document.getElementById('productoid').innerHTML = body;
+    }
 
 }
 
+
+function addProdsTemp() {
+
+    var tabladatos = document.getElementById('tabla-de-datos-body');
+    let datos = [];
+
+    var selectDeProductos = document.getElementById('productoid');
+
+    var productoID = document.getElementById('productoid').value;
+    var productoNombre = selectDeProductos.options[selectDeProductos.selectedIndex].text;
+    var cantidad = document.getElementById('cantidad').value;
+    var precio = document.getElementById('precio').value;
+
+    if (cantidad == '') {
+        document.getElementById('cantidadMensaje').innerHTML = 'Llena estos datos para continuar';
+    }
+    else if (precio == '') {
+        document.getElementById('cantidadMensaje').innerHTML = '';
+        document.getElementById('precioMensaje').innerHTML = 'Llena estos datos para continuar';
+    }
+    else {
+
+        document.getElementById('cantidadMensaje').innerHTML = '';
+        document.getElementById('precioMensaje').innerHTML = '';
+
+        datos.push(productoID, productoNombre, cantidad, precio);
+
+        console.log(datos);
+
+        for (let i = 0; i < 1; i++) {
+            tabladatos.innerHTML += "<td>" + datos[i++] + "</td>" + "<td>" + datos[i++] + "</td>" + "<td>" + datos[i++] + "</td>" + "<td>" + datos[i++] + "</td>";
+        }
+    }
+}
+
+
+getProducts();
 obtainTicketsPerIDTicket();

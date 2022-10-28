@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="../../css/typography.css">
     <link rel="stylesheet" href="../../css/specific/new-ticket.css">
     <link rel="stylesheet" href="../../css/specific/users.css">
+    <link rel="stylesheet" href="../../css/specific/ticket-info.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="../../img/support-logo.png" />
     <link rel="stylesheet" href="../../css/colors.css">
@@ -199,18 +200,9 @@
                                                 <span class="input-group-text ">
                                                     <i class="fa-solid fa-list"></i>
                                                 </span>
-                                                <input type="text" class="form-control" placeholder="Router Xiaomi"
-                                                    name="nombreRecursoFacturable" id="nombreRecursoFacturableTxt">
-                                            </div>
-                                            <p id="nombreFacturableMensaje"></p>
-
-                                            <label for="" class="form-label mt-4">Marca</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text ">
-                                                    <i class="fa-solid fa-list"></i>
-                                                </span>
-                                                <input type="text" class="form-control" placeholder="Router Xiaomi"
-                                                    name="nombreRecursoFacturable" id="nombreRecursoFacturableTxt">
+                                                <select id="productoid" class="form-select">
+                                                    
+                                                </select>
                                             </div>
                                             <p id="nombreFacturableMensaje"></p>
 
@@ -220,10 +212,9 @@
                                                     <i class="fa-solid fa-list-ol"></i>
                                                 </span>
                                                 <input type="number" class="form-control" min="1" max="99999999"
-                                                    placeholder="1" name="cantidadRecursoFacturable"
-                                                    id="cantidadRecursoFacturableTxt">
+                                                    placeholder="1" name="cantidadRecursoFacturable" id="cantidad">
                                             </div>
-                                            <p id="cantidadFacturableMensaje"></p>
+                                            <p id="cantidadMensaje" class="text-danger"></p>
 
                                             <label for="" class="form-label mt-4">Precio (Q)</label>
                                             <div class="input-group">
@@ -231,19 +222,13 @@
                                                     <i class="fa-solid fa-money-bill"></i>
                                                 </span>
                                                 <input type="number" class="form-control" min="1" max="99999999"
-                                                    placeholder="500.00" id="precioRecursoFacturableTxt">
+                                                    placeholder="500.00" id="precio">
                                             </div>
-                                            <p id="precioFacturableMensaje"></p>
-
-                                            <textarea class="form-control mt-3" name="descripcionRecursoFacturable"
-                                                rows="9"
-                                                placeholder="Puedes incluir una breve descripción del recurso utilizado, etc."
-                                                minlength="0" maxlength="256"
-                                                id="descripcionRecursoFacturableTxt"></textarea>
-                                            <p id="descripcionFacturableMensaje"></p>
+                                            <p id="precioMensaje" class="text-danger"></p>
 
                                             <a class="btn blue-font-color white-text-color mt-2 mb-2 href"
-                                                id="agregarFacturableBoton" onclick="validarFacturables()">+ Añadir</a>
+                                                id="agregarFacturableBoton" onclick="addProdsTemp()">+ Añadir
+                                                Producto</a>
 
                                         </div>
 
@@ -252,22 +237,13 @@
                                                 <table class="table">
                                                     <thead>
                                                         <tr>
-                                                            <th scope="col">Nombre</th>
-                                                            <th scope="col">Cant.</th>
+                                                            <th scope="col">ID</th>
+                                                            <th scope="col">Producto</th>
+                                                            <th scope="col">Cantidad</th>
                                                             <th scope="col">Precio</th>
-                                                            <th scope="col">Descripción</th>
-                                                            <th scope="col"></th>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>a</td>
-                                                            <td>1</td>
-                                                            <td>1</td>
-                                                            <td>abc</td>
-                                                            <td><a href="#" class="btn red-font-color"><i
-                                                                        class="fa-solid fa-trash"></i></a></td>
                                                         </tr>
-
+                                                    </thead>
+                                                    <tbody id="tabla-de-datos-body">
                                                     </tbody>
                                                 </table>
                                             </div>

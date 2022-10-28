@@ -134,7 +134,7 @@ function sendKPISurvey() {
         var raw = JSON.stringify({
             "TicketId": idTicket,
             "Puntuacion": cantEstrellas,
-            "ComentarioEncuesta": ''+ comentario +''
+            "ComentarioEncuesta": '' + comentario + ''
         });
 
         var requestOptions = {
