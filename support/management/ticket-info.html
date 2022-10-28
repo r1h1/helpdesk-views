@@ -156,57 +156,16 @@
 
                     <div class="row modules">
                         <div class="col-md-6 stretch-card transparent mt-4">
-                            <div class="card white-font-color">
-                                <div class="card-body w-100">
-                                    <p class="fw-bold">Ticket</p>
-                                    <div class="ticket-form p-2">
-                                        <div
-                                            class="descripcion-ticket alert green-font-color mt-4 white-text-color h-auto">
-                                            <p>Abierto</p>
-                                        </div>
-                                        <p class="h4 font-weight-bold mt-5">#262001 Mi office no tiene licencia</p>
-                                        <p class="h5 mt-4">Usuario: Daniel Rivas</p>
-                                        <p class="h5 mt-3">Departamento: Contabilidad</p>
-                                        <p class="h5 mt-3 fw-bold">Tipo de Incidencia: Software</p>
-                                        <p class="h5 fw-bold mt-3">Prioridad: Alta</p>
-                                        <p class="h5 mt-3">Fecha de creación: 19/08/2022</p>
+                            <div id="ticket-info-por-id">
 
-                                        <div class="descripcion-ticket border border-4 p-5 mt-5 h-auto">
-                                            <p>Buena tarde, necesito una licencia para Office 2019 Professional Plus
-                                                o en su defecto KMS, ya que no puedo trabajar ofimática. saludos.</p>
-                                        </div>
-                                        <p class="h5 mt-5">Adjuntos:</p>
-                                        <p class="h5 mt-3 text-decoration-underline blue-text-color">
-                                            https://drive.google.com/file/d/1hc1Vy3VbbnMuyci_0Dq99OogMHAP3Xd/view?usp=drivesdk
-                                        </p>
-                                        <div class="descripcion-solucion border border-4 p-5 mt-5 h-auto">
-                                            <p>Comentarios de Soporte:</p>
-                                            <p class="mt-4"></p>
-                                        </div>
-                                    </div>
-
-                                </div>
                             </div>
                         </div>
+
                         <div class="col-md-6 stretch-card transparent mt-4">
                             <div class="card white-font-color">
                                 <div class="card-body w-100">
                                     <p class="fw-bold">Resolucion del Ticket</p>
                                     <form class="issue-form m-4 row" action="" method="">
-
-                                        <div class="col-md-12 mb-3 mt-2">
-                                            <label for="" class="form-label">Técnico Asignado *</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text ">
-                                                    <i class="fa-solid fa-user"></i>
-                                                </span>
-                                                <select class="form-select " name="tecnicoAsignado" required>
-                                                    <option value="a">Juan</option>
-                                                    <option value="b">Pedro</option>
-                                                </select>
-                                            </div>
-
-                                        </div>
 
                                         <div class="col-md-12 mb-3 mt-2">
 
@@ -216,15 +175,17 @@
                                                     <i class="fa-solid fa-circle-question"></i>
                                                 </span>
                                                 <select class="form-select " name="estadoTicket" required>
-                                                    <option value="a">Abierto</option>
-                                                    <option value="b">En Proceso</option>
-                                                    <option value="c">Cerrado</option>
+                                                    <option value="1">CREADO</option>
+                                                    <option value="2">ASIGNADO</option>
+                                                    <option value="3">EN EJECUCION</option>
+                                                    <option value="4">EN REVISION</option>
+                                                    <option value="5">FINALIZADO</option>
                                                 </select>
                                             </div>
                                         </div>
 
                                         <div class="col-md-12 mb-3 mt-2">
-
+                                            <label for="" class="form-label">Comentario Final *</label>
                                             <textarea class="form-control" name="descripcion" rows="9"
                                                 placeholder="Puedes incluir una breve descripción de tu problema para ayudar al Usuario."
                                                 minlength="0" maxlength="256" required></textarea>
@@ -233,7 +194,17 @@
 
                                         <div class="col-md-12 mb-3 mt-2" id="recursosFacturables">
 
-                                            <label for="" class="form-label">Nombre del Recurso</label>
+                                            <label for="" class="form-label">Producto</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text ">
+                                                    <i class="fa-solid fa-list"></i>
+                                                </span>
+                                                <input type="text" class="form-control" placeholder="Router Xiaomi"
+                                                    name="nombreRecursoFacturable" id="nombreRecursoFacturableTxt">
+                                            </div>
+                                            <p id="nombreFacturableMensaje"></p>
+
+                                            <label for="" class="form-label mt-4">Marca</label>
                                             <div class="input-group">
                                                 <span class="input-group-text ">
                                                     <i class="fa-solid fa-list"></i>
