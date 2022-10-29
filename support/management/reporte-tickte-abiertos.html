@@ -127,7 +127,8 @@
                             <div class="row">
                                 <div class="col-12 col-xl-8 mb-xl-0 mt-3">
                                     <h3 class="font-weight-bold">Reportes de Ticket</h3>
-                                    <h6 class="font-weight-normal mb-0">Puedes generar un reporte con varias opciones de visualizacion de los tickets.</span>
+                                    <h6 class="font-weight-normal mb-0">Puedes generar un reporte con varias opciones de
+                                        visualizacion de los tickets.</span>
                                     </h6>
                                 </div>
                                 <div class="row principal-options mt-4">
@@ -159,6 +160,9 @@
                                                 <input type="date" class="form-control text-uppercase"
                                                     name="departamento" placeholder="Nombre del Departamento *"
                                                     id="FechaI" required />
+                                                <div class="invalid-feedback">
+                                                    Por favor, completa este campo para continuar.
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-3 mt-2">
@@ -171,18 +175,39 @@
                                                 <input type="date" class="form-control text-uppercase"
                                                     name="departamento" placeholder="Nombre del Departamento *"
                                                     id="FechaF" required />
+                                                <div class="invalid-feedback">
+                                                    Por favor, completa este campo para continuar.
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 mb-3 mt-2">
-                                            <label for="" class="form-label">Estado*</label>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" id="idEstadoTickt" hidden>
-                                                <span class="input-group-text">
-                                                    <i class="fa-solid fa-building-user"></i>
+                                        <div class="col-sm-12 col-md-8 col-lg-12 mb-3 mt-4">
+                                            <label for="" class="form-label">Estado *</label>
+                                            <input type="text" class="form-control " id="EstadoActual" maxlength="100"
+                                                placeholder="" readonly />
+                                            <div class="input-group has-validation">
+                                                <span class="input-group-text ">
+                                                    <i class="fa-solid fa-user"></i>
                                                 </span>
-                                                <input type="text" class="form-control text-uppercase"
-                                                    name="departamento" placeholder="Nombre del Departamento *"
-                                                    id="Estado" required />
+                                                <select class="form-select text-uppercase" id="Estadoid" required>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    Por favor, completa este campo para continuar.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-8 col-lg-12 mb-3 mt-4">
+                                            <label for="" class="form-label">Prioridad *</label>
+                                            <input type="text" class="form-control " id="PrioridadActual" maxlength="100"
+                                                placeholder="" readonly />
+                                            <div class="input-group has-validation">
+                                                <span class="input-group-text ">
+                                                    <i class="fa-solid fa-user"></i>
+                                                </span>
+                                                <select class="form-select text-uppercase" id="Prioridad" required>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    Por favor, completa este campo para continuar.
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-3 mt-2">

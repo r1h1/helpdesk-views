@@ -24,6 +24,8 @@ function permissionAuthLogin() {
         sessionStorage.removeItem('departamentoID');
         window.location.href = '../../index.html';
     }
+    document.getElementById('EstadoActual').style.display = 'none';
+    document.getElementById('PrioridadActual').style.display = 'none';
 }
 
 function closeSession() {
@@ -36,8 +38,50 @@ function closeSession() {
     window.location.href = '../../index.html';
 }
 
+function getCategories() {
 
+    var url = 'https://helpdeskwebservices.tk/api/EstadoTicket';
+    fetch(url)
+        .then(response => response.json())
+        .then(data => mostrarData(data))
+        .catch(error => Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Hubo un error al obtener los datos, código de error: ' + error,
+            confirmButtonText: 'Entendido',
+        }));
 
+    const mostrarData = (data) => {
+        let body = '';
+        body += `<option value="0">TODOS</option>`;
+        for (var i = 0; i < data.length; i++) {
+            body += `<option value="${data[i].EstadoTicketID}">${data[i].EstadoTicket}</option>`;
+        }
+        document.getElementById('Estadoid').innerHTML = body;
+    }
+}
+function getPrioridad() {
+
+    var url = 'https://helpdeskwebservices.tk/api/Prioridad';
+    fetch(url)
+        .then(response => response.json())
+        .then(data => mostrarData(data))
+        .catch(error => Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Hubo un error al obtener los datos, código de error: ' + error,
+            confirmButtonText: 'Entendido',
+        }));
+
+    const mostrarData = (data) => {
+        let body = '';
+        body += `<option value="0">TODOS</option>`;
+        for (var i = 0; i < data.length; i++) {
+            body += `<option value="${data[i].PrioridadID}">${data[i].Prioridad}</option>`;
+        }
+        document.getElementById('Prioridad').innerHTML = body;
+    }
+}
 // function editDepartment(id, descripcion) {
 
 //     document.getElementById('idDepartamento').value = id;
@@ -52,7 +96,8 @@ function generarReporte() {
 
     var idFechaInicio = document.getElementById('FechaI').value;
     var idFechaFin = document.getElementById('FechaF').value;
-    var idEstadoTickt = document.getElementById('Estado').value;
+    var idEstadoTickt = document.getElementById('Estadoid').value;
+    var idPrioridad = document.getElementById('Prioridad').value;
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -62,7 +107,7 @@ function generarReporte() {
         "EstadoTickt": '' + idEstadoTickt + ''
     });
     let body = ''
-    body += `<iframe src="http://helpdeskreports.tk//VisorTicket?psFechaI=${idFechaInicio}&psFechaF=${idFechaFin}&psEstado=${idEstadoTickt}"
+    body += `<iframe src="http://helpdeskreports.tk//VisorTicket?psFechaI=${idFechaInicio}&psFechaF=${idFechaFin}&psEstado=${idEstadoTickt}&psPrioridad=${idPrioridad}"
     style="width:100%; height:800px;" fram<eborder="0"></iframe>`
     document.getElementById('iframe-datos-body').innerHTML = body;
     console.log(body)
@@ -85,3 +130,6 @@ document.addEventListener("keyup", e => {
 
 
 });
+
+getCategories()
+getPrioridad()
