@@ -60,6 +60,7 @@ function getCategories() {
         document.getElementById('Estadoid').innerHTML = body;
     }
 }
+
 function getPrioridad() {
 
     var url = 'https://helpdeskwebservices.tk/api/Prioridad';
@@ -82,15 +83,6 @@ function getPrioridad() {
         document.getElementById('Prioridad').innerHTML = body;
     }
 }
-// function editDepartment(id, descripcion) {
-
-//     document.getElementById('idDepartamento').value = id;
-//     document.getElementById('nombreDepartamento').value = descripcion;
-
-//     document.getElementById('generarReporte').style.display = 'block';
-//     document.getElementById('saveDepartment').style.display = 'none';
-
-// }
 
 function generarReporte() {
 
@@ -98,38 +90,71 @@ function generarReporte() {
     var idFechaFin = document.getElementById('FechaF').value;
     var idEstadoTickt = document.getElementById('Estadoid').value;
     var idPrioridad = document.getElementById('Prioridad').value;
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({
-        "FechaInicio": '' + idFechaInicio + '',
-        "FechaFin": '' + idFechaFin + '',
-        "EstadoTickt": '' + idEstadoTickt + ''
-    });
-    let body = ''
-    body += `<iframe src="http://helpdeskreports.tk/ReporteTickets?psFechaI=${idFechaInicio}&psFechaF=${idFechaFin}&psEstado=${idEstadoTickt}&psPrioridad=${idPrioridad}"
-    style="width:100%; height:800px;" fram<eborder="0"></iframe>`
-    document.getElementById('iframe-datos-body').innerHTML = body;
-    console.log(body)
-}
+    if (idFechaFin == '' || idFechaFin == '') {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Ingrese la fecha de inicio y fin para generar su reporte'
+        });
+    }
+    else {
 
-document.addEventListener("keyup", e => {
-
-    if (e.target.matches("#buscador")) {
-
-        if (e.key === "Escape") e.target.value = ""
-
-        document.querySelectorAll(".departamento").forEach(departamentoSelector => {
-
-            departamentoSelector.textContent.toLowerCase().includes(e.target.value.toLowerCase())
-                ? departamentoSelector.classList.remove("filtro")
-                : departamentoSelector.classList.add("filtro")
+        let timerInterval
+        Swal.fire({
+            icon: 'info',
+            title: 'Generando',
+            html: 'Ten paciencia, estamos trabajando en ello',
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector('b')
+                timerInterval = setInterval(() => {
+                    b.textContent = Swal.getTimerLeft()
+                }, 100)
+            },
+            willClose: () => {
+                clearInterval(timerInterval)
+            }
+        }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log('I was closed by the timer')
+            }
         })
 
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "FechaInicio": '' + idFechaInicio + '',
+            "FechaFin": '' + idFechaFin + '',
+            "EstadoTickt": '' + idEstadoTickt + ''
+        });
+        let body = ''
+        body += `<iframe src="http://helpdeskreports.tk/ReporteTickets?psFechaI=${idFechaInicio}&psFechaF=${idFechaFin}&psEstado=${idEstadoTickt}&psPrioridad=${idPrioridad}"
+        style="width:100%; height:800px;" fram<eborder="0"></iframe>`
+        document.getElementById('iframe-datos-body').innerHTML = body;
     }
+}
 
 
-});
+function obtainTodayDate() {
 
-getCategories()
-getPrioridad()
+    var fecha = new Date(); //Fecha actual
+    var mes = fecha.getMonth() + 1; //obteniendo mes
+    var dia = fecha.getDate(); //obteniendo dia
+    var ano = fecha.getFullYear(); //obteniendo año
+    if (dia < 10)
+        dia = '0' + dia; //agrega cero si el menor de 10
+    if (mes < 10)
+        mes = '0' + mes //agrega cero si el menor de 10
+    document.getElementById('FechaI').value = ano + "-" + mes + "-" + dia;
+    document.getElementById('FechaF').value = ano + "-" + mes + "-" + dia;
+
+}
+
+obtainTodayDate();
+getCategories();
+getPrioridad();

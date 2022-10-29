@@ -144,49 +144,48 @@
                     </div>
 
                     <div class="row modules">
-                        <div class="col-md-12 col-lg-6 stretch-card transparent mt-4">
+                        <div class="col-md-12 col-lg-12 stretch-card transparent mt-4">
                             <div class="card white-font-color">
                                 <div class="card-body w-100">
                                     <p class="fw-bold">Parametros del reporte</p>
+
                                     <form class="issue-form m-4 row" action="" method="POST">
 
-                                        <div class="col-md-12 mb-3 mt-2">
+                                        <div class="col-sm-12 col-md-6 col-lg-3 mb-3 mt-2">
                                             <label for="" class="form-label">Fecha Inicio*</label>
                                             <div class="input-group">
                                                 <input type="text" class="form-control" id="idFechaInicio" hidden>
                                                 <span class="input-group-text">
-                                                    <i class="fa-solid fa-building-user"></i>
+                                                    <i class="fa-solid fa-calendar-days"></i>
                                                 </span>
                                                 <input type="date" class="form-control text-uppercase"
-                                                    name="departamento" placeholder="Nombre del Departamento *"
-                                                    id="FechaI" required />
+                                                    name="departamento" id="FechaI" required />
                                                 <div class="invalid-feedback">
                                                     Por favor, completa este campo para continuar.
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 mb-3 mt-2">
+                                        <div class="col-sm-12 col-md-6 col-lg-3 mb-3 mt-2">
                                             <label for="" class="form-label">Fecha Fin*</label>
                                             <div class="input-group">
                                                 <input type="text" class="form-control" id="idFechaFin" hidden>
                                                 <span class="input-group-text">
-                                                    <i class="fa-solid fa-building-user"></i>
+                                                    <i class="fa-solid fa-calendar-days"></i>
                                                 </span>
                                                 <input type="date" class="form-control text-uppercase"
-                                                    name="departamento" placeholder="Nombre del Departamento *"
-                                                    id="FechaF" required />
+                                                    name="departamento" id="FechaF" required />
                                                 <div class="invalid-feedback">
                                                     Por favor, completa este campo para continuar.
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12 col-md-8 col-lg-12 mb-3 mt-4">
+                                        <div class="col-sm-12 col-md-6 col-lg-3 mb-3 mt-2">
                                             <label for="" class="form-label">Estado *</label>
                                             <input type="text" class="form-control " id="EstadoActual" maxlength="100"
                                                 placeholder="" readonly />
                                             <div class="input-group has-validation">
                                                 <span class="input-group-text ">
-                                                    <i class="fa-solid fa-user"></i>
+                                                    <i class="fa-solid fa-circle-question"></i>
                                                 </span>
                                                 <select class="form-select text-uppercase" id="Estadoid" required>
                                                 </select>
@@ -195,13 +194,13 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12 col-md-8 col-lg-12 mb-3 mt-4">
+                                        <div class="col-sm-12 col-md-6 col-lg-3 mb-3 mt-2">
                                             <label for="" class="form-label">Prioridad *</label>
-                                            <input type="text" class="form-control " id="PrioridadActual" maxlength="100"
-                                                placeholder="" readonly />
+                                            <input type="text" class="form-control " id="PrioridadActual"
+                                                maxlength="100" placeholder="" readonly />
                                             <div class="input-group has-validation">
                                                 <span class="input-group-text ">
-                                                    <i class="fa-solid fa-user"></i>
+                                                    <i class="fa-solid fa-list"></i>
                                                 </span>
                                                 <select class="form-select text-uppercase" id="Prioridad" required>
                                                 </select>
@@ -210,14 +209,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 mb-3 mt-2">
+                                        <div class="col-sm-12 col-md-6 col-lg-3 mb-3 mt-2">
                                             <div id="saveDepartment">
-                                                <button type="button"
-                                                    class="btn green-font-color white-text-color mt-2 mb-2 href"
-                                                    onclick="generarReporte()"><i
-                                                        class="fa-solid fa-floppy-disk"></i><span
-                                                        class="p-2">Generar</span>
-                                                </button>
+                                                <a class="btn btn-primary mt-2 mb-2" onclick="generarReporte()"><i
+                                                        class="fa-solid fa-print"></i><span class="p-2">Generar
+                                                        Reporte</span>
+                                                </a>
                                             </div>
                                         </div>
                                     </form>
