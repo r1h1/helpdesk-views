@@ -82,6 +82,11 @@ function getPrioridad() {
         }
         document.getElementById('Prioridad').innerHTML = body;
     }
+
+    let noData = '';
+    noData += `<p class="text-muted text-center">-- El reporte no ha sido generado --</p>`;
+
+    document.getElementById('iframe-datos-body').innerHTML = noData;
 }
 
 function generarReporte() {
