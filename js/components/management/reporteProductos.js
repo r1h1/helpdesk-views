@@ -114,7 +114,7 @@ function generarReporte() {
             "EstadoTickt": '' + idEstadoTickt + ''
         });
         let body = ''
-        body += `<iframe src="http://helpdeskreports.tk/VisorProductos?psFechaI=${idFechaInicio}&psFechaF=${idFechaFin}&psProducto=${idEstadoTickt}"
+        body += `<iframe src="https://helpdeskreports.tk/VisorProductos?psFechaI=${idFechaInicio}&psFechaF=${idFechaFin}&psProducto=${idEstadoTickt}"
         style="width:100%; height:800px;" fram<eborder="0"></iframe>`
         document.getElementById('iframe-datos-body').innerHTML = body;
         console.log(body)

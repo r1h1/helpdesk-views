@@ -109,7 +109,7 @@ function generarReporte() {
         myHeaders.append("Content-Type", "application/json");
 
         let body = ''
-        body += `<iframe src="http://helpdeskreports.tk/VisorLibroVenta?psUs=0&psFechaI=${idFechaInicio}&psFechaF=${idFechaFin}"
+        body += `<iframe src="https://helpdeskreports.tk/VisorLibroVenta?psUs=0&psFechaI=${idFechaInicio}&psFechaF=${idFechaFin}"
         style="width:100%; height:800px;" fram<eborder="0"></iframe>`
         document.getElementById('iframe-datos-body').innerHTML = body;
         console.log(body)
