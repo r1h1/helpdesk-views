@@ -107,7 +107,7 @@ function generarReporte() {
         "EstadoTickt": '' + idEstadoTickt + ''
     });
     let body = ''
-    body += `<iframe src="http://helpdeskreports.tk//VisorTicket?psFechaI=${idFechaInicio}&psFechaF=${idFechaFin}&psEstado=${idEstadoTickt}&psPrioridad=${idPrioridad}"
+    body += `<iframe src="http://helpdeskreports.tk/ReporteTickets?psFechaI=${idFechaInicio}&psFechaF=${idFechaFin}&psEstado=${idEstadoTickt}&psPrioridad=${idPrioridad}"
     style="width:100%; height:800px;" fram<eborder="0"></iframe>`
     document.getElementById('iframe-datos-body').innerHTML = body;
     console.log(body)
