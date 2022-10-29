@@ -120,11 +120,11 @@ function sendKPISurvey() {
         var idTicket = datoObtenido[0];
     }
 
-    if (cantEstrellas == "" || cantEstrellas == null) {
+    if (cantEstrellas == "" || cantEstrellas == null || comentario == '') {
         Swal.fire({
             icon: 'error',
             title: 'Oops',
-            text: 'Debes ingresar la cantidad de estrellas (1 - 5)'
+            text: 'Debes ingresar la cantidad de estrellas (1 - 5) y tu comentario personal'
         });
     }
     else {
@@ -162,17 +162,13 @@ function sendKPISurvey() {
             Swal.fire({
                 icon: 'success',
                 title: 'Correcto',
-                text: 'Gracias por tomarte el tiempo de llenar esta encuesta, no olvides tomar agua.',
+                text: 'Gracias por tomarte el tiempo de llenar esta encuesta, estamos para servirte',
                 confirmButtonText: 'Entendido',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    document.getElementById('estrellas').value = 5;
-                    document.getElementById('comentario').value = '';
-                    $('#modalCalificacion').modal('hide');
+                    location.reload();
                 } else if (result.isDenied) {
-                    document.getElementById('estrellas').value = 5;
-                    document.getElementById('comentario').value = '';
-                    $('#modalCalificacion').modal('hide');
+                    location.reload();
                 }
             });
         }

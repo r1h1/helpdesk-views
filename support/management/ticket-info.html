@@ -170,14 +170,14 @@
 
                                         <div class="col-md-12 mb-3 mt-2">
 
+                                            <input type="text" id="idTicket" hidden>
+
                                             <label for="" class="form-label">Estado *</label>
                                             <div class="input-group">
                                                 <span class="input-group-text ">
                                                     <i class="fa-solid fa-circle-question"></i>
                                                 </span>
-                                                <select class="form-select " name="estadoTicket" required>
-                                                    <option value="1">CREADO</option>
-                                                    <option value="2">ASIGNADO</option>
+                                                <select class="form-select " id="estadoTicket" required>
                                                     <option value="3">EN EJECUCION</option>
                                                     <option value="4">EN REVISION</option>
                                                     <option value="5">FINALIZADO</option>
@@ -187,9 +187,9 @@
 
                                         <div class="col-md-12 mb-3 mt-2">
                                             <label for="" class="form-label">Comentario Final *</label>
-                                            <textarea class="form-control" name="descripcion" rows="9"
+                                            <textarea class="form-control" id="comentarioFinal" rows="9"
                                                 placeholder="Puedes incluir una breve descripción de tu problema para ayudar al Usuario."
-                                                minlength="0" maxlength="256" required></textarea>
+                                                minlength="0" maxlength="256"></textarea>
 
                                         </div>
 
@@ -201,7 +201,7 @@
                                                     <i class="fa-solid fa-list"></i>
                                                 </span>
                                                 <select id="productoid" class="form-select">
-                                                    
+
                                                 </select>
                                             </div>
                                             <p id="nombreFacturableMensaje"></p>
@@ -250,11 +250,10 @@
                                         </div>
 
                                         <div class="col-md-12 mb-3 mt-3">
-                                            <button type="submit"
-                                                class="btn green-font-color white-text-color mt-2 mb-2 href"
-                                                id="submit-ticket"><i class="fa-solid fa-floppy-disk"></i><span
+                                            <a class="btn green-font-color white-text-color mt-2 mb-2"
+                                                onclick="ticketSolver()"><i class="fa-solid fa-floppy-disk"></i><span
                                                     class="p-2">Guardar</span>
-                                            </button>
+                                            </a>
                                             <a class="btn blue-font-color white-text-color mt-2 mb-2 href"
                                                 onclick="habilitarRecursoFacturable()" id="botonRecursoFacturable"
                                                 data-as-toggle="tooltip" data-as-placement="top"

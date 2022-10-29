@@ -99,6 +99,7 @@ function obtainTicketsPerIDTicket() {
     </div>`;
 
         document.getElementById('ticket-info-por-id').innerHTML = body;
+        document.getElementById('idTicket').value = idTicket;
     }
 }
 
@@ -133,14 +134,14 @@ function getProducts() {
 function addProdsTemp() {
 
     var tabladatos = document.getElementById('tabla-de-datos-body');
-    let datos = [];
-
+    var idticket = document.getElementById('idTicket').value;
     var selectDeProductos = document.getElementById('productoid');
-
     var productoID = document.getElementById('productoid').value;
     var productoNombre = selectDeProductos.options[selectDeProductos.selectedIndex].text;
     var cantidad = document.getElementById('cantidad').value;
     var precio = document.getElementById('precio').value;
+
+    let datos = [];
 
     if (cantidad == '') {
         document.getElementById('cantidadMensaje').innerHTML = 'Llena estos datos para continuar';
@@ -161,6 +162,240 @@ function addProdsTemp() {
         for (let i = 0; i < 1; i++) {
             tabladatos.innerHTML += "<td>" + datos[i++] + "</td>" + "<td>" + datos[i++] + "</td>" + "<td>" + datos[i++] + "</td>" + "<td>" + datos[i++] + "</td>";
         }
+
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "TicketID": idticket,
+            "ProductoID": productoID,
+            "Cantidad": cantidad
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+
+        var url = 'https://helpdeskwebservices.tk/CrearInsumo';
+
+        fetch(url, requestOptions)
+            .then(response => response.text())
+            .then(result => exitoso(result))
+            .catch(error => Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Hubo un error en la operación, código de error: ' + error,
+                confirmButtonText: 'Entendido',
+            }));
+
+        const exitoso = (result) => {
+
+            console.log('se insertó insumo');
+
+        }
+    }
+}
+
+
+function ticketSolver() {
+
+    var tipoAccionTicket = document.getElementById('estadoTicket').value;
+    var idticket = document.getElementById('idTicket').value;
+    var comentario = document.getElementById('comentarioFinal').value;
+
+    if (idticket == '' || comentario == '') {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops',
+            text: 'Agrega un comentario para el usuario',
+            confirmButtonText: 'Entendido',
+        }).then((result) => {
+            if (result.isConfirmed) {
+            } else if (result.isDenied) {
+            }
+        });
+
+        console.log('No agregó comentario');
+    }
+
+    else {
+
+        if (tipoAccionTicket == 3) {
+            ticketInExecute();
+        }
+        else if (tipoAccionTicket == 4) {
+            ticketInReview();
+        }
+        else if (tipoAccionTicket == 5) {
+            ticketFinish();
+        }
+        else {
+            //nothing action
+        }
+
+    }
+
+}
+
+
+function ticketInExecute() {
+
+    console.log('Ticket se cambia a Ejecución');
+
+    var idticket = document.getElementById('idTicket').value;
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+        "TicketId": idticket
+    });
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+
+
+    var url = 'https://helpdeskwebservices.tk/EjecutarTicket';
+
+    fetch(url, requestOptions)
+        .then(response => response.text())
+        .then(result => exitoso(result))
+        .catch(error => Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Hubo un error en la operación, código de error: ' + error,
+            confirmButtonText: 'Entendido',
+        }));
+
+    const exitoso = (result) => {
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Correcto',
+            text: 'La operación se completó.',
+            confirmButtonText: 'Entendido',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                location.reload();
+            } else if (result.isDenied) {
+                location.reload();
+            }
+        });
+    }
+}
+
+
+
+
+function ticketInReview() {
+
+    console.log('Ticket se cambia a En Revisión');
+
+    var idticket = document.getElementById('idTicket').value;
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+        "TicketId": idticket
+    });
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+
+
+    var url = 'https://helpdeskwebservices.tk/RevisarTicket';
+
+    fetch(url, requestOptions)
+        .then(response => response.text())
+        .then(result => exitoso(result))
+        .catch(error => Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Hubo un error en la operación, código de error: ' + error,
+            confirmButtonText: 'Entendido',
+        }));
+
+    const exitoso = (result) => {
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Correcto',
+            text: 'La operación se completó.',
+            confirmButtonText: 'Entendido',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                location.reload();
+            } else if (result.isDenied) {
+                location.reload();
+            }
+        });
+    }
+}
+
+
+
+function ticketFinish() {
+
+    console.log('Ticket se cambia a Finalizado');
+
+    var idticket = document.getElementById('idTicket').value;
+    var comentario = document.getElementById('comentarioFinal').value;
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+        "TicketId": idticket,
+        "ComentarioFinal": '' + comentario + ''
+    });
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+
+
+    var url = 'https://helpdeskwebservices.tk/FinalizarTicket';
+
+    fetch(url, requestOptions)
+        .then(response => response.text())
+        .then(result => exitoso(result))
+        .catch(error => Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Hubo un error en la operación, código de error: ' + error,
+            confirmButtonText: 'Entendido',
+        }));
+
+    const exitoso = (result) => {
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Correcto',
+            text: 'La operación se completó.',
+            confirmButtonText: 'Entendido',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = 'status-tickets.html';
+            } else if (result.isDenied) {
+                window.location.href = 'status-tickets.html';
+            }
+        });
     }
 }
 
