@@ -110,7 +110,7 @@ function generarReporte() {
             icon: 'info',
             title: 'Generando',
             html: 'Ten paciencia, estamos trabajando en ello',
-            timer: 2000,
+            timer: 2500,
             timerProgressBar: true,
             didOpen: () => {
                 Swal.showLoading()
