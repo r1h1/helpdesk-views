@@ -127,7 +127,7 @@ function generarReporte() {
             if (result.dismiss === Swal.DismissReason.timer) {
                 console.log('I was closed by the timer')
             }
-        })
+        });
 
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");

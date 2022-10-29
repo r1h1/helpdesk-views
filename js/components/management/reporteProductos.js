@@ -59,54 +59,67 @@ function getCategories() {
         }
         document.getElementById('Producto').innerHTML = body;
     }
+
+    let noData = '';
+    noData += `<p class="text-muted text-center">-- El reporte no ha sido generado --</p>`;
+
+    document.getElementById('iframe-datos-body').innerHTML = noData;
 }
-// function editDepartment(id, descripcion) {
-
-//     document.getElementById('idDepartamento').value = id;
-//     document.getElementById('nombreDepartamento').value = descripcion;
-
-//     document.getElementById('generarReporte').style.display = 'block';
-//     document.getElementById('saveDepartment').style.display = 'none';
-
-// }
 
 function generarReporte() {
 
     var idFechaInicio = document.getElementById('FechaI').value;
     var idFechaFin = document.getElementById('FechaF').value;
     var idEstadoTickt = document.getElementById('Producto').value;
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({
-        "FechaInicio": '' + idFechaInicio + '',
-        "FechaFin": '' + idFechaFin + '',
-        "EstadoTickt": '' + idEstadoTickt + ''
-    });
-    let body = ''
-    body += `<iframe src="http://helpdeskreports.tk/VisorProductos?psFechaI=${idFechaInicio}&psFechaF=${idFechaFin}&psProducto=${idEstadoTickt}"
-    style="width:100%; height:800px;" fram<eborder="0"></iframe>`
-    document.getElementById('iframe-datos-body').innerHTML = body;
-    console.log(body)
-}
-
-document.addEventListener("keyup", e => {
-
-    if (e.target.matches("#buscador")) {
-
-        if (e.key === "Escape") e.target.value = ""
-
-        document.querySelectorAll(".departamento").forEach(departamentoSelector => {
-
-            departamentoSelector.textContent.toLowerCase().includes(e.target.value.toLowerCase())
-                ? departamentoSelector.classList.remove("filtro")
-                : departamentoSelector.classList.add("filtro")
-        })
-
+    if (idFechaFin == '' || idFechaFin == '') {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Ingrese la fecha de inicio y fin para generar su reporte'
+        });
     }
+    else {
 
+        let timerInterval
+        Swal.fire({
+            icon: 'info',
+            title: 'Generando',
+            html: 'Ten paciencia, estamos trabajando en ello',
+            timer: 3800,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector('b')
+                timerInterval = setInterval(() => {
+                    b.textContent = Swal.getTimerLeft()
+                }, 100)
+            },
+            willClose: () => {
+                clearInterval(timerInterval)
+            }
+        }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log('I was closed by the timer')
+            }
+        });
 
-});
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "FechaInicio": '' + idFechaInicio + '',
+            "FechaFin": '' + idFechaFin + '',
+            "EstadoTickt": '' + idEstadoTickt + ''
+        });
+        let body = ''
+        body += `<iframe src="http://helpdeskreports.tk/VisorProductos?psFechaI=${idFechaInicio}&psFechaF=${idFechaFin}&psProducto=${idEstadoTickt}"
+        style="width:100%; height:800px;" fram<eborder="0"></iframe>`
+        document.getElementById('iframe-datos-body').innerHTML = body;
+        console.log(body)
+    }
+}
 
 function obtainTodayDate() {
 
