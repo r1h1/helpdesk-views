@@ -75,6 +75,7 @@ function getPrioridad() {
         }));
 
     const mostrarData = (data) => {
+        
         let body = '';
         body += `<option value="0">TODOS</option>`;
         for (var i = 0; i < data.length; i++) {
@@ -160,5 +161,6 @@ function obtainTodayDate() {
 
 }
 
+getPrioridad();
 obtainTodayDate();
 getCategories();
